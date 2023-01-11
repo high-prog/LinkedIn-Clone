@@ -14,15 +14,57 @@ const Login = (props) => {
         </div>
       </Nav>
       <Section>
-          <Hero>
-            <h1>Welcome to your Professional Community</h1>
-            <img src="/images/login-hero.svg" alt="LoginHero" />
-          </Hero>
+        <Hero>
+          <h1>Welcome to your Professional Community</h1>
+          <img src="/images/login-hero.svg" alt="LoginHero" />
+        </Hero>
+        <Form>
+          <Google>
+            <img src="/images/google.svg" alt="" />
+            Sign In with Google
+          </Google>
+        </Form>
       </Section>
     </Container>
   );
 };
 
+const Form = styled.div`
+  margin-top:100px;
+  width:408px;
+
+  @media (max-width:768px){
+    margin-top:20px;
+  }
+
+`;
+
+const Google = styled.button`
+display:flex;
+justify-content:center;
+background-color:#fff;
+align-items:center;
+height:56px;
+width:100%;
+border-radius:28px;
+box-shadow: inset 0 0 0 1px rgba(0 0 0 / 60%), inset 0 0 0 2px rgba(0 0 0 / 0%), inset 0 0 0 1px rgba(0 0 0 / 0%);
+border:none;
+vertical-align:middle;
+z-index:0;
+transition-duration: 167ms;
+font-size:20px;
+color:rgba(0,0,0,0.6);
+cursor:pointer;
+
+& > img{
+  margin-right:10px;
+}
+
+&:hover{
+background-color:rgba(207,207,207,0.25);
+color: rgba(0 ,0, 0 ,0.75);
+
+`;
 
 const Hero = styled.div`
 width:100%;
@@ -46,12 +88,12 @@ h1 {
 
 img {
   
-    z-index:-1;
+  z-index: -1;
     position:absolute;
-    width: 700px;
+    width: 500px;
     height:670px;
-    bottom:-2px;
-    right: -150px;
+    top:60px;
+    right: -50px;
     @media (max-width: 768px){
       top:230px;
       width: initial;
@@ -61,14 +103,12 @@ img {
 }
 `;
 
-
-
 const Section = styled.section`
-  didplay:flex;
+  display:flex;
   align-content:start;
   min-height:700px;
   padding-bottom:138px;
-  padding-top:40px;
+  padding-top:70px;
   
   position:relative;
   flex-wrap:wrap;
@@ -76,14 +116,14 @@ const Section = styled.section`
   max-width:1128px;
   align-items:center;
   margin:auto;
-
-
+  
+  
   @media (max-width: 768px){
+    padding-top:40px;
     margin:auto;
     min-height:0px;
   }
 `;
-
 
 const Join = styled.a`
   font-size:16px;
@@ -121,7 +161,6 @@ const Signin = styled.a`
   text-decoration:none;
   }
 `;
-
 
 const Container = styled.div`
   padding: 0px;
