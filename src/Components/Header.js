@@ -18,10 +18,106 @@ const Header = (props) => {
             <img src="/images/search-icon.svg" alt="" />
           </SearchIcon>
         </Search>
+
+        <Nav>
+          <NavListWrap>
+            <NavList>
+              <a>
+                <img src="/images/nav-home.svg" alt="Home" />
+                <span>Home</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-network.svg" alt="Network" />
+                <span>My Network</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-jobs.svg" alt="Job" />
+                <span>Jobs</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-messaging.svg" alt="messaging" />
+                <span>Messaging</span>
+              </a>
+            </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-notifications.svg" alt="notifiaction" />
+                <span>Notifications</span>
+              </a>
+            </NavList>
+          </NavListWrap>
+        </Nav>
       </Content>
     </Container>
   );
 };
+
+const NavListWrap = styled.ul`
+  display:flex;
+  flex-wrap:no-wrap;
+  list-style:none;
+
+`;
+
+const NavList = styled.li`
+  display:flex;
+  align-items:center;
+  a{
+    display:flex;
+    align-items:center;
+    background:transparent;
+    flex-direction:column;
+    font-size:12px;
+    font-weight:400;
+    justify-content:center;
+    line-height:1.5;
+    min-height:42px;
+    min-width:80px;
+    text-decoration:none;
+    position:relative;
+    cursor:pointer;
+    span {
+      color: rgba(0,0,0,0.6);
+      display:flex;
+      align-items:center;
+    }
+    @media (max-width:768px){
+      min-width:70px;
+    }
+  }
+
+  &:hover,
+  &:active{
+    a{
+      span{
+        color:rgba(0,0,0,0.9);
+      }
+    }
+  }
+
+
+`;
+
+const Nav = styled.nav`
+margin-left:auto;
+display:block;
+
+@media (max-width: 768px){
+  position:fixed;
+  left:0;
+  bottom:0;
+  background:white;
+  width:100%;
+}
+
+
+`;
 
 const Search = styled.div`
   opacity:1;
@@ -68,25 +164,25 @@ const Logo = styled.span`
   font-size:0px;
 `;
 
+const Content = styled.div`
+display:flex;
+align-items:center;
+margin: 0 auto;
+min-height: 100%;
+max-width:1128px;
+
+`;
+
 const Container = styled.div`
+position:absolute;
 background-color: white;
 border-bottom: 1px solid rgba(0,0,0,0.08);
 left:0;
-padding:0 24px;
+padding:8px 24px;
 top:0;
 width:100vw;
 z-index:100;
 
 
 `;
-
-const Content = styled.div`
-  display:flex;
-  align-items:center;
-  margin: 0 auto;
-  min-height: 100%;
-  max-width:1128px;
-
-`;
-
 export default Header;
