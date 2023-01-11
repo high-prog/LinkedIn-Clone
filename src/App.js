@@ -1,11 +1,21 @@
 import React from 'react';
 import './style.css';
+import Login from './Components/Login.js';
+import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 
-export default function App() {
+ function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <h2>LinkedIN CLone</h2>
+
+<>
+    <div className="App">
+            <Router>
+            <Routes>
+            <Route path="/" element={<Login />} />
+            </Routes>
+            </Router>
     </div>
+</>
   );
 }
+
+export default App;
