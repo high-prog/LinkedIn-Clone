@@ -52,20 +52,23 @@ const Header = (props) => {
               </a>
             </NavList>
             <User>
-              <a> 
+              <a>
                 <img src="/images/user.svg" alt="" />
                 <span>Me</span>
-                <img src="/images/down-icon.svg" alt="" className="arrow"/>
+                <img src="/images/down-icon.svg" alt="" className="arrow" />
               </a>
+
+              <SignOut>
+                <a>Sign Out</a>
+              </SignOut>
             </User>
             <Work>
-              <a >
-                <img src="/images/nav-work.svg" alt=""/>
-                <span>Work
-                <img src="/images/down-icon.svg" alt=""/>
-                  
+              <a>
+                <img src="/images/nav-work.svg" alt="" />
+                <span>
+                  Work
+                  <img src="/images/down-icon.svg" alt="" />
                 </span>
-
               </a>
             </Work>
           </NavListWrap>
@@ -75,11 +78,25 @@ const Header = (props) => {
   );
 };
 
+const SignOut = styled.div`
+  position:absolute;
+  top:60px;
+  background:white;
+  border-radius:0 0 5px 5px;
+  width:100px;
+  height:40px;
+  font-size:16px;
+  transition-duration:167ms;
+  text-align:center;
+  display:none;
 
+@media (max-width:768px){
+  position:absolute;
+  top: -40px;
+  right: 1px;
+}
 
-
-
-
+`;
 
 const NavListWrap = styled.ul`
   display:flex;
@@ -106,6 +123,7 @@ const NavList = styled.li`
   display:flex;
   align-items:center;
   a{
+    padding-bottom:5px;
     display:flex;
     align-items:center;
     background:transparent;
@@ -141,7 +159,6 @@ const NavList = styled.li`
 
 `;
 
-
 const User = styled(NavList)`
   a > img{
     width:24px;
@@ -162,6 +179,22 @@ const User = styled(NavList)`
     width:10px;
     height:10px;
   }
+
+
+
+
+&:hover{
+  ${SignOut}{
+    align-items:center;
+    display:flex;
+    justify-content:center;
+    
+  }
+}
+
+
+
+
 `;
 const Work = styled(User)`
 border-left:1px solid rgba(0,0,0,0.08);
