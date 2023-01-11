@@ -164,7 +164,6 @@ const Signin = styled.a`
 
 const Container = styled.div`
   padding: 0px;
-
 `;
 const Nav = styled.nav`
 max-width:1128px;
