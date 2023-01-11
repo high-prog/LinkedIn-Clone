@@ -6,7 +6,7 @@ const Home = (props) => {
     <Container>
       <Section>
         <h5>
-          <a>Hiring in a Hurry? - </a>
+          <a>Hiring in a Hurry ? - </a>
         </h5>
         <p>
           Find talented pros in record time with Upwork and keep business
@@ -18,8 +18,8 @@ const Home = (props) => {
 };
 
 const Container = styled.div`
-  padding-top:52px;
-  max-width:100%;
+  padding-top: 52px;
+  max-width: 100%;
 
 
 
@@ -28,26 +28,24 @@ const Section = styled.section`
   min-height:50px;
   padding: 16px;
   box-sizing: content-box;
-  text-align: center;
-  text-decoration: underline;
+  text-align: center;  
   display:flex;
+  font-size:14px;
   justify-content: center;
   h5{
-    color:#0a66c2;
-    font-size:14px;
     a{
-      font-weight:700px;
+    color: #0a66c2;
+    font-weight:700px;
     }
   }
   p{
-    font-size:14px;
-    color:#434649;
-    font-weight:600;
+    color: #434649;
+    font-weight: 700;
   }
 
   @media (max-width:768px){
     flex-direction: column;
-    padding:0 5px;
+    padding: 0 5px;
   }
 
 `;
