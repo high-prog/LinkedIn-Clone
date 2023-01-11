@@ -51,13 +51,35 @@ const Header = (props) => {
                 <span>Notifications</span>
               </a>
             </NavList>
-            
+            <User>
+              <a> 
+                <img src="/images/user.svg" alt="" />
+                <span>Me</span>
+                <img src="/images/down-icon.svg" alt="" className="arrow"/>
+              </a>
+            </User>
+            <Work>
+              <a >
+                <img src="/images/nav-work.svg" alt=""/>
+                <span>Work
+                <img src="/images/down-icon.svg" alt=""/>
+                  
+                </span>
+
+              </a>
+            </Work>
           </NavListWrap>
         </Nav>
       </Content>
     </Container>
   );
 };
+
+
+
+
+
+
 
 const NavListWrap = styled.ul`
   display:flex;
@@ -68,14 +90,13 @@ const NavListWrap = styled.ul`
     span:after{
       content:'';
       transform:scaleX(1);
-      border-bottom:2px solid var(white,#fff);
+      border-bottom: 2px solid var(--white,#fff);
       bottom:0;
       left:0;
       position:absolute;
       transition: transform.2s ease-in-out;
       width:100%;
       border-color:rgba(0,0,0,0.9);
-
     }
   }
 
@@ -118,6 +139,32 @@ const NavList = styled.li`
   }
 
 
+`;
+
+
+const User = styled(NavList)`
+  a > img{
+    width:24px;
+    border-radius:50%;
+    height:24px;
+  }
+  a > svg{
+    width:24px;
+    border-radius:50%;
+  }
+
+  span{
+    display:flex;
+    align-items:center;
+  }
+
+  .arrow{
+    width:10px;
+    height:10px;
+  }
+`;
+const Work = styled(User)`
+border-left:1px solid rgba(0,0,0,0.08);
 `;
 
 const Nav = styled.nav`
@@ -194,7 +241,7 @@ position:absolute;
 background-color: white;
 border-bottom: 1px solid rgba(0,0,0,0.08);
 left:0;
-padding:8px 24px;
+padding:1px 24px;
 top:0;
 width:100vw;
 z-index:100;
