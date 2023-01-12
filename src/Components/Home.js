@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Main from './Main.js';
+import Leftside from './Leftside.js';
+import Rightside from './Rightside.js';
 
 const Home = (props) => {
   return (
@@ -13,9 +16,35 @@ const Home = (props) => {
           moving.
         </p>
       </Section>
+      <Layout>
+        <Leftside />
+        <Main />
+        <Rightside />
+      </Layout>
     </Container>
   );
 };
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-areas:"leftside main rightside";
+  grid-template-columns: minmax(0,5fr) minmax(0,12fr) minmax(300px,7fr);
+  column-gap:25px;
+  row-gap:25px;
+  grid-template-row:auto;
+  margin:25px;
+
+  @media (max-width:768px){
+    display:flex;
+    flex-direction:column;
+    padding: 0 5px;
+    
+  }
+`;
+
+
+
+
 
 const Container = styled.div`
   padding-top: 52px;
