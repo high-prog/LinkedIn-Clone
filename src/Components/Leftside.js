@@ -31,6 +31,21 @@ const Leftside = (props) => {
           </span>
         </Item>
       </ArtCard>
+      <CommunityCard>
+        <a>
+          <span>Groups</span>
+        </a>
+        <a>
+          <span>Events</span>
+          <img src="/images/plus-icon.svg" alt="" />
+        </a>
+        <a>
+          <span>Follow Hashtags</span>
+        </a>
+        <a>
+          <span>Discover More</span>
+        </a>
+      </CommunityCard>
     </Container>
   );
 };
@@ -156,5 +171,21 @@ const Item = styled.div`
 
 
 `;
+
+
+const CommunityCard = styled(ArtCard)`
+  padding: 8px 0 0;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+
+  a{
+    color:black;
+    padding: 4px 12px 4px 12px;
+  }
+
+`;
+
+
 
 export default Leftside;
