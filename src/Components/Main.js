@@ -60,10 +60,12 @@ const Main = (props) => {
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
                   alt=""
+                  width="20px"
                 />
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/119/119956.png"
+                  src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
                   alt=""
+                  width="18px"
                 />
                 <span>75</span>
               </button>
@@ -72,6 +74,38 @@ const Main = (props) => {
               <a>2 comments</a>
             </li>
           </SocialCounts>
+          <button>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
+              width="35px"
+              alt=""
+            />
+            <span>Like</span>
+          </button>
+          <button>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
+              alt=""
+              width="25px"
+            />
+            <span>Comments</span>
+          </button>
+          <button>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
+              alt=""
+              width="30px"
+            />
+            <span>Share</span>
+          </button>
+          <button>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
+              alt=""
+              width="35px"
+            />
+            <span>Send</span>
+          </button>
         </Article>
       </div>
     </Container>
@@ -242,5 +276,26 @@ img{
   height:100%;
 }
 `;
+
+const SocialCounts = styled.ul`
+line-height:1.3;
+display:flex;
+align-items:flex-start;
+overflow:auto;
+margin:0 16px;
+padding: 8px 0;
+border-bottom: 1px solid #e9e5df;
+list-style:none;
+li{
+  margin-right:5px;
+  font-size:12px;
+  button{
+    dispaly:flex;
+
+  }
+}
+`;
+
+const SocialActions = styled.div``;
 
 export default Main;
