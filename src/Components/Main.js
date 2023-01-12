@@ -87,7 +87,7 @@ const Main = (props) => {
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
                 alt=""
-                width="25px"
+                width="20px"
               />
               <span>Comments</span>
             </button>
@@ -95,7 +95,7 @@ const Main = (props) => {
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
                 alt=""
-                width="30px"
+                width="35px"
               />
               <span>Share</span>
             </button>
@@ -103,7 +103,7 @@ const Main = (props) => {
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
                 alt=""
-                width="35px"
+                width="30px"
               />
               <span>Send</span>
             </button>
@@ -308,9 +308,9 @@ const SocialActions = styled.div`
   button{
     display:inline-flex;
     align-items:center;
-    padding:8px;
+    padding:4px;
     color:#0a66c2;
-    
+
 
     @media (min-width:768px){
       span{
