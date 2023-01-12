@@ -36,7 +36,7 @@ const Rightside = (props) => {
         <BannerCard>
           <img src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/adBanner.png" alt="" />
         </BannerCard>
-    </Container>
+    </Container> 
   );
 };
 
