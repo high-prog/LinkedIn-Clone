@@ -21,7 +21,7 @@ const Login = (props) => {
         <Form>
           <Google>
             <img src="/images/google.svg" alt="" />
-            Sign In with Google
+            SignIn with Google 
           </Google>
         </Form>
       </Section>

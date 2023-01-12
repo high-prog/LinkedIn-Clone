@@ -29,6 +29,10 @@ const Main = (props) => {
           </button>
         </div>
       </ShareBox>
+
+      <div>
+        <Article>articles;</Article>
+      </div>
     </Container>
   );
 };
@@ -110,13 +114,18 @@ div{
       color:#70b5f9;
      }
    }
-   
-   
  }
-
-
 }
-
 `;
+
+
+const Article = styled(CommonCard)`
+  padding:0;
+  overflow:visible;
+  margin : 0 0 0 8px;
+`;
+
+
+
 
 export default Main;
