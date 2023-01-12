@@ -17,9 +17,9 @@ const Home = (props) => {
         </p>
       </Section>
       <Layout>
-        {/* <Leftside /> */}
+        <Leftside />
         <Main />
-        {/* <Rightside /> */}
+        <Rightside />
       </Layout>
     </Container>
   );
@@ -41,10 +41,6 @@ const Layout = styled.div`
     
   }
 `;
-
-
-
-
 
 const Container = styled.div`
   padding-top: 52px;
