@@ -48,7 +48,7 @@ const Main = (props) => {
           <Description>Text Description</Description>
           <SharedImage>
             <a>
-              <img src="/images/shared-image.jpg" alt="" />
+              <img src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg" alt="" />
             </a>
           </SharedImage>
         </Article>
@@ -201,8 +201,25 @@ button{
 
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+padding: 0 16px;
+overflow:hidden;
+color:rgba(0,0,0,0.9);
+font-size:14px;
+text-align:left;
+`;
 
-const SharedImage = styled.div``;
+const SharedImage = styled.div`
+margin-top:8px;
+width:100%;
+display:block;
+position:relative;
+background-color:#f9fafb;
+img{
+  object-fit:contain;
+  width:100%;
+  height:100%;
+}
+`;
 
 export default Main;
