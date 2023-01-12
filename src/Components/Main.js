@@ -298,6 +298,26 @@ li{
 }
 `;
 
-const SocialActions = styled.div``;
+const SocialActions = styled.div`
+  align-items:center;
+  display:flex;
+  justify-content:flex-start;
+  margin:0;
+  min-height:40px;
+  padding:4px 8px;
+  button{
+    display:inline-flex;
+    align-items:center;
+    padding:8px;
+    color:#0a66c2;
+    
+
+    @media (min-width:768px){
+      span{
+        margin-left:8px;
+      }
+    }
+  }
+`;
 
 export default Main;
