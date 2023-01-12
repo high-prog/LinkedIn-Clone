@@ -48,9 +48,30 @@ const Main = (props) => {
           <Description>Text Description</Description>
           <SharedImage>
             <a>
-              <img src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg" alt="" />
+              <img
+                src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg"
+                alt=""
+              />
             </a>
           </SharedImage>
+          <SocialCounts>
+            <li>
+              <button>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
+                  alt=""
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/119/119956.png"
+                  alt=""
+                />
+                <span>75</span>
+              </button>
+            </li>
+            <li>
+              <a>2 comments</a>
+            </li>
+          </SocialCounts>
         </Article>
       </div>
     </Container>
