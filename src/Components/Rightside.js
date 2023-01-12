@@ -29,13 +29,19 @@ const Rightside = (props) => {
              </div>
           </li>
         </FeedList>
+        <Recommendation>View All Recommendations
+          <img src="/images/right-icon.svg" alt="" />
+        </Recommendation>
       </FollowCard>
+        <BannerCard>
+          <img src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/adBanner.png" alt="" />
+        </BannerCard>
     </Container>
   );
 };
 
 const Container = styled.div`
-  grid-area:rightside;
+  grid-area: rightside;
   margin-bottom:100px;
 `;
 
@@ -106,7 +112,18 @@ const Avatar = styled.div`
 
 
 
-
+const Recommendation = styled.a`
+color:#0a66c2;
+display:flex;
+align-items:center;
+font-size:14px;
+`; 
+const BannerCard = styled(FollowCard)`
+img{
+  width:100%;
+  height:100%;
+}
+`; 
 
 
 
