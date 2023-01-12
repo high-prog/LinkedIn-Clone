@@ -36,7 +36,7 @@ const Rightside = (props) => {
 
 const Container = styled.div`
   grid-area:rightside;
-  
+  margin-bottom:100px;
 `;
 
 const FollowCard = styled.div`
@@ -64,10 +64,38 @@ color: rgba(0,0,0,0.6);
 
 const FeedList = styled.div`
 margin-top:16px;
-display:flex;
-align-items:center;
+li {
+  display:flex;
+  align-items:center;
+  margin:12px 0;
+  position:relative;
+  font-size:14px;
+  & > div{
+    display:flex;
+    flex-direction:column;
+  }
+  button{
+    background-color:transparent;
+    color: rgba(0,0,0,0.6);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6);
+    padding:16px;
+    align-items:center;
+    box-sizing:border-box;
+    border-radius:15px;
+    font-weight:600;
+    display:inline-flex;
+    justify-content:center;
+    max-height:32px;
+    max-width:480px;
+    text-align:center;
+    outline:none;
+    cursor:pointer;
+  }
+}
 `;
-const Avatar = styled.div``;
+const Avatar = styled.div`
+  background-image
+`;
 
 
 

@@ -13,7 +13,7 @@ const Login = (props) => {
           <Signin>Sign In</Signin>
         </div>
       </Nav>
-      <Section>
+      <Section> 
         <Hero>
           <h1>Welcome to your Professional Community</h1>
           <img src="/images/login-hero.svg" alt="LoginHero" />
