@@ -12,7 +12,7 @@ const Leftside = (props) => {
             <Link>Welcome, there!</Link>
           </a>
           <a>
-            <AddPhotoText>Add Photo</AddPhotoText>
+            <AddPhotoText>Add a Photo</AddPhotoText>
           </a>
         </UserInfo>
         <Widget>
@@ -27,6 +27,7 @@ const Leftside = (props) => {
         <Item>
           <span>
             <img src="/images/item-icon.svg" alt="" />
+            My Items
           </span>
         </Item>
       </ArtCard>
@@ -56,7 +57,6 @@ const UserInfo = styled.div`
   padding:12px 12px 16px;
   word-wrap:break-word;
   word-break:break-word;
-  
 `;
 
 const CardBackground = styled.div`
@@ -64,7 +64,7 @@ const CardBackground = styled.div`
   background-position: center;
   background-size: 462px;
   margin: -12px -12px 0; 
-  height:54px;
+  height:64px;
 `;
 const Photo = styled.div`
   box-shadow: none;
@@ -75,10 +75,10 @@ const Photo = styled.div`
   background-clip:content-box;
   background-color:white;
   background-position:center;
-  background-size:80%;
+  background-size:60%;
   background-repeat:no-repeat;
   border: 2px solid white;
-  margin: -38px auto 5px;
+  margin: -38px auto 30px;
   border-radius:50%;
 `;
 
@@ -135,6 +135,26 @@ svg{
 }
 
 `;
-const Item = styled.div``;
+const Item = styled.div`
+  border-color:rgba(0,0,0,0.8);
+  text-align:left;
+  padding:12px;
+  font-size:12px;
+  display:block;
+  span{
+    display:flex;
+    align-items:center;
+    color:rgba(0,0,0,1);
+    svg{
+      color:rgba(0,0,0,0.6);
+    }
+  }
+
+  &:hover{
+    background-color:rgba(0,0,0,0.08);
+  }
+
+
+`;
 
 export default Leftside;
