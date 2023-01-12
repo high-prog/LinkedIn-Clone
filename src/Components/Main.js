@@ -10,7 +10,6 @@ const Main = (props) => {
           <img src="/images/user.svg" alt="" />
           <button>Start a post</button>
         </div>
-
         <div>
           <button>
             <img src="/images/photo-icon.svg" alt="" />
@@ -76,15 +75,16 @@ div{
     img{
       width:30px;
       height:30x;
-      margin-right:3px;
     }
   }
 
   &:first-child{
     display:flex;
+    margin:10px auto;
     align-items:center;
-    justify-content:row-start;
+    justify-content:center;
     padding:4px 8px;
+    width: 95%;
     img{
       width:40px;
       border-radius:50%;
@@ -100,6 +100,17 @@ div{
     }
   }
  &:nth-child(2){
+   padding:-bottom:4px;
+   button{
+     img{
+       margin:0 4px 0 -2px;
+       opacity:0.8;
+     }
+     span{
+      color:#70b5f9;
+     }
+   }
+   
    
  }
 
