@@ -94,7 +94,13 @@ li {
 }
 `;
 const Avatar = styled.div`
-  background-image
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1/1533.png');
+  background-size:contain;
+  background-position:center;
+  background-repeat: no-repeat;
+  width:28px;
+  height:28px;
+  margin-right: 8px;
 `;
 
 
