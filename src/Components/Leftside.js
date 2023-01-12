@@ -15,6 +15,20 @@ const Leftside = (props) => {
             <AddPhotoText>Add Photo</AddPhotoText>
           </a>
         </UserInfo>
+        <Widget>
+          <a>
+            <div>
+              <span>Connections</span>
+              <span>Grow Your Network</span>
+            </div>
+            <img src="/images/widget-icon.svg" alt="" />
+          </a>
+        </Widget>
+        <Item>
+          <span>
+            <img src="/images/item-icon.svg" alt="" />
+          </span>
+        </Item>
       </ArtCard>
     </Container>
   );
@@ -65,10 +79,62 @@ const Photo = styled.div`
   background-repeat:no-repeat;
   border: 2px solid white;
   margin: -38px auto 5px;
-  border-radius:10%;
+  border-radius:50%;
 `;
 
-const Link = styled.div``;
-const AddPhotoText = styled.div``;
+const Link = styled.div`
+  font-size:16px;
+  line-height:1.5;
+  color:rgba(0,0,0,0.9);
+  font-weight:600;
+
+`;
+const AddPhotoText = styled.div`
+  color:#0a66c2;
+  margin-top:4px;
+  font-size:12px;
+  line-height:1.33;
+  font-weight:500;
+`;
+
+const Widget = styled.div`
+border-bottom:1px solid rgba(0,0,0,0.15);
+padding: 12px 0 ;
+
+& > a{
+  text-decoration:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 4px 12px;
+  cursor:pointer;
+
+  &:hover{
+    background-color:rgba(0,0,0,0.08);
+  }
+
+  div{
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+    span{
+      font-size:12px;
+      line-height:1.333;
+      &:first-child{
+        color:rgba(0,0,0,0.6);
+      }
+      &:nth-child(2){
+        color:rgba(0,0,0,1);
+      }
+    }
+  }
+}
+
+svg{
+  color:rgba(0,0,0,1);
+}
+
+`;
+const Item = styled.div``;
 
 export default Leftside;
