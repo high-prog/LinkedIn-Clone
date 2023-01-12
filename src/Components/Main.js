@@ -45,6 +45,12 @@ const Main = (props) => {
               <img src="/images/ellipsis.svg" width="20px" alt="" />
             </button>
           </SharedActor>
+          <Description>Text Description</Description>
+          <SharedImage>
+            <a>
+              <img src="/images/shared-image.jpg" alt="" />
+            </a>
+          </SharedImage>
         </Article>
       </div>
     </Container>
@@ -194,5 +200,9 @@ button{
 
 
 `;
+
+const Description = styled.div``;
+
+const SharedImage = styled.div``;
 
 export default Main;

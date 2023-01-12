@@ -17,7 +17,7 @@ const Login = (props) => {
         <Hero>
           <h1>Welcome to your Professional Community</h1>
           <img src="/images/login-hero.svg" alt="LoginHero" />
-        </Hero>
+        </Hero> 
         <Form>
           <Google>
             <img src="/images/google.svg" alt="" />

@@ -17,9 +17,9 @@ const Home = (props) => {
         </p>
       </Section>
       <Layout>
-        <Leftside />
+        {/* <Leftside /> */}
         <Main />
-        <Rightside />
+        {/* <Rightside /> */}
       </Layout>
     </Container>
   );
