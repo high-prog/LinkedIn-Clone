@@ -7,9 +7,7 @@ import { Redirect } from 'react-router';
 const Login = (props) => {
   return (
     <Container>
-      {
-        props.user && <Redirect to="/home" />
-      }
+      {props.user && <Redirect to="/home" />}
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="" />
@@ -191,7 +189,9 @@ flex-wrap: nowrap;
 `;
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    user: state.userState.user,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
