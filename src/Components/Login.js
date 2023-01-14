@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const Login = (props) => {
   return (
@@ -13,15 +14,15 @@ const Login = (props) => {
           <Signin>Sign In</Signin>
         </div>
       </Nav>
-      <Section> 
+      <Section>
         <Hero>
           <h1>Welcome to your Professional Community</h1>
           <img src="/images/login-hero.svg" alt="LoginHero" />
-        </Hero> 
+        </Hero>
         <Form>
           <Google>
             <img src="/images/google.svg" alt="" />
-            SignIn with Google 
+            SignIn with Google
           </Google>
         </Form>
       </Section>
@@ -182,7 +183,12 @@ flex-wrap: nowrap;
 @media (max-width:768px){
   padding: 10px 5px;
 }
-
-
 `;
-export default Login;
+
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
