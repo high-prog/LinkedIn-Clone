@@ -2,10 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { signInAPI } from '../actions';
+import { Redirect } from 'react-router';
 
 const Login = (props) => {
   return (
     <Container>
+      {
+        props.user && <Redirect to="/home" />
+      }
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="" />
