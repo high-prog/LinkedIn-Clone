@@ -1,5 +1,5 @@
 import { auth, provider } from '../firebase';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup, onAuthStateChanged  } from 'firebase/auth';
 import { SET_USER } from './actionType';
 
 export const setUser = (payload) => ({
@@ -15,5 +15,17 @@ export function signInAPI() {
         dispatch(setUser(payload.user));
       })
       .catch((error) => alert(error.message));
+  };
+}
+
+
+export function getUserAuth() {
+  return (dispatch) => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log("user" + user);
+        dispatch(setUser(user))
+      }
+    });
   };
 }
