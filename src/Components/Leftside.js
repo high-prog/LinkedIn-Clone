@@ -17,7 +17,7 @@ const Leftside = (props) => {
         </UserInfo>
         <Widget>
           <a>
-            <div>
+            <div> 
               <span>Connections</span>
               <span>Grow Your Network</span>
             </div>
