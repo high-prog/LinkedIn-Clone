@@ -1,5 +1,5 @@
 import { auth, provider } from '../firebase';
-import { signInWithPopup, onAuthStateChanged  } from 'firebase/auth';
+import { signInWithPopup, onAuthStateChanged, signOut  } from 'firebase/auth';
 import { SET_USER } from './actionType';
 
 export const setUser = (payload) => ({
@@ -28,4 +28,14 @@ export function getUserAuth() {
       }
     });
   };
+}
+
+export function signOutAPI(){
+  return (dispatch) => {
+    signOut(auth).then(() => {
+      dispatch(setUser(null))
+    }).catch((error) => {
+      console.log(error.message);
+    })
+  }
 }
