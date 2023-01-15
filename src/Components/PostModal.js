@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
+import ReactPlayer from "react-player"; 
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState('');
   const [shareImage, setShareImage] = useState('');
+  const [videoLink , setVideoLink] = useState('');
 
   const handleChange = (e) => {
     const image = e.target.files[0];
@@ -55,8 +57,10 @@ const PostModal = (props) => {
                   autofocus={true}
                 />
                 <UploadImage>
-                 
                   {shareImage && <img src={URL.createObjectURL(shareImage)} />}
+
+                  <>
+                  </>
                 </UploadImage>
               </Editor>
             </SharedContent>
