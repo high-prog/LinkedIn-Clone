@@ -32,9 +32,7 @@ const Main = (props) => {
 
   return (
     <>
-      {props.articles.length === 0 ? (
-        <p>Nothing to show. Post Something!</p>
-      ) : (
+      
         <Container>
           <ShareBox>
             <div>
@@ -81,6 +79,10 @@ const Main = (props) => {
               </button>
             </div>
           </ShareBox>
+          
+          {props.articles.length === 0 ? (
+        <p>Nothing to show. Post Something!</p>
+      ) : (
           <Content>
             {props.loading && <img src="./images/loading-icon.svg" />}
 
@@ -173,9 +175,10 @@ const Main = (props) => {
                 );
               })}
           </Content>
+          )}
           <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
-      )}
+      
     </>
   );
 };
