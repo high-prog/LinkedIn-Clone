@@ -179,6 +179,7 @@ div{
       width:30px;
       height:30x;
     }
+    
   }
 
   &:first-child{
@@ -200,6 +201,9 @@ div{
       padding-left:16px;
       border: 1px solid rgba(0,0,0,0.15);
       text-align:left;
+      &:hover{
+        background:rgba(0,0,0,0.08);
+      }
     }
   }
  &:nth-child(2){
