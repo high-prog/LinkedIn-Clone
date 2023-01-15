@@ -36,6 +36,9 @@ const PostModal = (props) => {
               Anyone
             </AssetButton>
           </ShareComment>
+          <PostButton>
+            Post
+          </PostButton>
         </SharedCreation>
       </Content>
     </Container>
@@ -179,6 +182,23 @@ const ShareComment = styled.div`
   }
 `;
 
-
+const PostButton = styled.button`
+  min-width: 60px;
+  border-radius:20px;
+  border:1px solid transparent;
+  outline:none;
+  padding:8px 26px;
+  cursor:pointer;
+  font-weight:650;
+  font-size:16px;
+  color:white;
+  background: #0a66c2;
+  &:hover{
+    background-color:#004182;
+  }
+  &:active{
+    transform:translateY(1.5px);
+  }
+`;
 
 export default PostModal;
