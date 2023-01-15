@@ -58,8 +58,14 @@ const Header = styled.div`
     width:40px;
     min-width:auto;
     color:rgba(0,0,0,0.15);
+    border:none;
+    background-color:white;
+    border-radius:9px;
     img{
       pointer-events:none;
+    }
+    &:hover{
+      background-color:rgba(0,0,0,0.08);
     }
   }
 `;
