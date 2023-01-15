@@ -61,11 +61,14 @@ const Header = styled.div`
     border:none;
     background-color:white;
     border-radius:9px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     img{
       pointer-events:none;
     }
     &:hover{
-      background-color:rgba(0,0,0,0.08);
+      background-color:rgba(0,0,0,0.8);
     }
   }
 `;
