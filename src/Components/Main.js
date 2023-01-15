@@ -59,8 +59,9 @@ const Main = (props) => {
           </button>
         </div>
       </ShareBox>
+      <Content>
+        {props.loading && <img src={'images/loading-icon.svg'} />}
 
-      <div>
         <Article>
           <SharedActor>
             <a>
@@ -139,7 +140,7 @@ const Main = (props) => {
             </button>
           </SocialActions>
         </Article>
-      </div>
+      </Content>
       <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
