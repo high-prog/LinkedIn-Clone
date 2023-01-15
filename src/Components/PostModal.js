@@ -1,8 +1,26 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState('');
+  const [shareImage, setShareImage] = useState('');
+
+  const handleChange = (e) => {
+    const image = e.target.files[0];
+    if (image === '' || image === undefined) {
+      alert(`Not an image , The file is ${typeOf(image)}`);
+      return;
+    }
+    setShareImage(image);
+  };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [props.showModal]);
 
   const reset = (e) => {
     setEditorText('');
@@ -35,7 +53,10 @@ const PostModal = (props) => {
                   onChange={(e) => setEditorText(e.target.value)}
                   placeholder="Type Something to post"
                   autofocus={true}
-                ></textarea>
+                />
+                <UploadImage>
+                  input
+                </UploadImage>
               </Editor>
             </SharedContent>
             <SharedCreation>
@@ -65,7 +86,9 @@ const PostModal = (props) => {
                   Anyone
                 </AssetButton>
               </ShareComment>
-              <PostButton>Post</PostButton>
+              <PostButton disabled={!editorText ? true : false}>
+                Post
+              </PostButton>
             </SharedCreation>
           </Content>
         </Container>
@@ -221,10 +244,11 @@ const PostButton = styled.button`
   cursor:pointer;
   font-weight:650;
   font-size:16px;
-  color:white;
-  background: #0a66c2;
+  color:${(props) => (props.disabled ? 'rgba(0,0,0,0.8)' : 'white')};
+  background: ${(props) => (props.disabled ? 'rgba(0,0,0,0.58)' : '#0a66c2')};
   &:hover{
-    background-color:#004182;
+    background-color:${(props) =>
+      props.disabled ? 'rgba(0,0,0,0.58)' : '#004182'};
   }
   &:active{
     transform:translateY(1.5px);
