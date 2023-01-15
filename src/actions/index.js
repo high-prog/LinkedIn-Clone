@@ -41,8 +41,8 @@ export function signOutAPI(){
     }).catch((error) => {
       console.log(error.message);
     })
-  }
-}
+  } 
+} 
 
 
 export function postArticleAPI(payload){
@@ -72,7 +72,7 @@ export function postArticleAPI(payload){
             description: payload.description,
           }
           );
-          console.log("Document written with ID: ", docRef.id);
+          // console.log("Document written with ID: ", docRef.id);
         } catch (e) {
           console.error("Error adding document: ", e);
         }

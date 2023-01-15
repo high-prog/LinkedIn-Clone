@@ -34,7 +34,7 @@ const PostModal = (props) => {
       timestamp: Timestamp.now(),
     };
 
-    console.log(Timestamp.now());
+    
     props.postArticle(payload);
     reset(e);
   };
