@@ -2,6 +2,7 @@ import { auth, provider, storage } from '../firebase';
 import { signInWithPopup, onAuthStateChanged, signOut  } from 'firebase/auth';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import db from '../firebase';
+import { collection, addDoc } from "firebase/firestore"; 
 
 import { SET_USER } from './actionType';
 
@@ -57,6 +58,25 @@ export function postArticleAPI(payload){
         console.log(error.code);
       }, async () => {
         const downloadURL = await getDownloadURL(upload.snapshot.ref);
+        try {
+          const docRef = await addDoc(collection(db, "users"), {
+            actor:{
+              description: payload.user.email,
+              title: payload.user.displayName,
+              date: payload.timestamp,
+              image: payload.user.photoURL
+            },
+            video: payload.video,
+            sharedImg: downloadURL,
+            comments: 0,
+            description: payload.description,
+          }
+          );
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+        
       });
     }
   }
