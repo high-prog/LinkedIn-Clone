@@ -108,12 +108,11 @@ const Main = (props) => {
                     <Description>{article.description}</Description>
                     <SharedImage>
                       <a>
-                        { article.sharedImg === '' ?
-                        <ReactPlayer width={'100%'} url={article.video} />:
-                          <img
-                          src={article.sharedImg}
-                          alt=""
-                        />}
+                        {article.sharedImg === '' ? (
+                          <ReactPlayer width={'100%'} url={article.video} />
+                        ) : (
+                          <img src={article.sharedImg} alt="" />
+                        )}
                       </a>
                     </SharedImage>
                     <SocialCounts>
