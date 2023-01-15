@@ -361,7 +361,7 @@ display:flex;
 align-items:center;
 overflow:hidden;
 height: 40px;
-border-bottom: 1px solid #e9e5df;
+border-bottom: 2px solid #e9e5df;
 list-style:none;
 li{
   border:none;
@@ -371,10 +371,11 @@ li{
   align-items:center;
   justfy-content:center;
   flex-grow:1;
+  pointer:cursor;
   
   a{
-    font-size:12px;
-    font-weight:600;
+    font-size:17px;
+    font-weight:400;
     width:100%;
     text-align:center;
   }
@@ -388,18 +389,24 @@ li{
     align-items:center;
     justify-content:center;
     background-color:white;
+    pointer:cursor;
     img{
       width:20px;
       margin-right:5px;
     }
-
+    span{
+      font-size:17px;
+      font-weight:400;
+    }
+    &:hover{
+      background:rgba(0,0,0,0.04);
+    }
+  }
+  &:hover{
+    background:rgba(0,0,0,0.04);
   }
 }
-&:first-child{
-  
-    border-right:1px solid rgba(0,0,0,0.38);
 
-}
 `;
 
 const SocialActions = styled.div`
