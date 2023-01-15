@@ -121,9 +121,9 @@ const Main = (props) => {
                       <li>
                         <button>
                           <img
-                            src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
+                            src="/images/like-icon.svg"
                             alt=""
-                            width="20px"
+                            
                           />
                           <img
                             src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
@@ -140,7 +140,7 @@ const Main = (props) => {
                     <SocialActions>
                       <button>
                         <img
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
+                          src="/images/like-icon.svg"
                           
                           alt=""
                         />
@@ -148,7 +148,7 @@ const Main = (props) => {
                       </button>
                       <button>
                         <img
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
+                          src="/images/comment-icon.svg"
                           alt=""
                           
                         />
@@ -156,7 +156,7 @@ const Main = (props) => {
                       </button>
                       <button>
                         <img
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
+                          src="/images/share-icon.svg"
                           alt=""
                           
                         />
@@ -164,7 +164,7 @@ const Main = (props) => {
                       </button>
                       <button>
                         <img
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
+                          src="/images/send-icon.svg"
                           alt=""
                           
                         />
@@ -358,10 +358,10 @@ img{
 const SocialCounts = styled.ul`
 line-height:1.3;
 display:flex;
-align-items:flex-start;
+align-items:space-around;
 overflow:auto;
-margin:0 16px;
-padding: 8px 0;
+padding: 8px 5px;
+border:1px solid red;
 border-bottom: 1px solid #e9e5df;
 list-style:none;
 li{
@@ -379,23 +379,23 @@ li{
 const SocialActions = styled.div`
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
   margin:0;
   min-height:40px;
   padding:0;
-  border:1px solid red;
+  
   button{
     display:flex;
     height:100%;
     align-items:center;
     padding:5px 10px;
     color:#0a66c2;
-    border:1px solid black;
+    border-right:1px solid rgba(0,0,0,0.08);
     background-color:white;
     justify-content:center;
     align-items:center;
     img{
-      width:25px;
+      width:20px;
     }
 
     @media (min-width:768px){
@@ -403,8 +403,9 @@ const SocialActions = styled.div`
         margin-left:8px;
       }
       button{
+        padding: 5px 90px;
         img{
-          width:20px;
+          width:30px;
         }
       }
     }
