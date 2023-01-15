@@ -371,7 +371,7 @@ li{
   align-items:center;
   justfy-content:center;
   flex-grow:1;
-  pointer:cursor;
+  cursor:pointer;
   
   a{
     font-size:17px;
@@ -389,7 +389,7 @@ li{
     align-items:center;
     justify-content:center;
     background-color:white;
-    pointer:cursor;
+    cursor:pointer;
     img{
       width:20px;
       margin-right:5px;
