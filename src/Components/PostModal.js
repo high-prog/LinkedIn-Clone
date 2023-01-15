@@ -7,14 +7,27 @@ const PostModal = (props) => {
   const [shareImage, setShareImage] = useState('');
   const [videoLink, setVideoLink] = useState('');
   const [showLinkInput, setShowLinkInput] = useState(false);
+  const [assetArea, setAssetArea] = useState('');
+
+  const switchAssetArea = (area) => {
+    setShareImage('');
+    setVideoLink('');
+    if(area === 'video'){
+      setShowLinkInput((e) => {
+        return !showLinkInput;
+      });
+    }
+    setAssetArea(area);
+  };
 
   const handleShow = (e) => {
     e.preventDefault();
-    console.log(showLinkInput)
-    setShowLinkInput((e) => {
-      return !showLinkInput;
-    })
-  }
+    switchAssetArea('video');
+    // console.log(showLinkInput);
+    // setShowLinkInput((e) => {
+    //   return !showLinkInput;
+    // });
+  };
 
   const handleChange = (e) => {
     const image = e.target.files[0];
@@ -35,6 +48,9 @@ const PostModal = (props) => {
 
   const reset = (e) => {
     setEditorText('');
+    setShareImage('');
+    setVideoLink('');
+    setAssetArea('');
     props.handleClick(e);
   };
 
@@ -65,26 +81,37 @@ const PostModal = (props) => {
                   placeholder="Type Something to post"
                   autofocus={true}
                 />
-                <UploadImage>
-                  {shareImage && <img src={URL.createObjectURL(shareImage)} />}
-                  <>
-                    {showLinkInput && <input
+
+                
+                  { assetArea == 'image' && <UploadImage>
+                    {shareImage && (
+                      <img src={URL.createObjectURL(shareImage)} />
+                    )}
+                  </UploadImage>
+                  }
+                
+
+                
+                {showLinkInput && assetArea === 'video' && (
+                  <UploadVideo>
+                    <input
                       type="text"
                       placeholder="Please put video link"
                       value={videoLink}
                       onChange={(e) => setVideoLink(e.target.value)}
-                    />}
-                    {videoLink && (
-                      <ReactPlayer width={'100%'} url={videoLink} />
-                    )}
-                  </>
-                  <></>
-                </UploadImage>
+                    />
+                  </UploadVideo>
+                )}
+                {videoLink && <ReactPlayer width={'100%'} url={videoLink} />}
+
+
+
+                <></>
               </Editor>
             </SharedContent>
             <SharedCreation>
               <AttachAssets>
-                <AssetButton>
+                <AssetButton onClick={() => switchAssetArea('image')}>
                   <input
                     type="file"
                     accept="image/gif, image/jpeg, image/jpg, image/png"
@@ -320,6 +347,14 @@ const UploadImage = styled.div`
     padding:10px 16px;
     border: 1px solid rgba(0,0,0,0.08);
     
+  }
+`;
+
+const UploadVideo = styled.div`
+  input{
+    padding:10px  16px;
+    border:rgba(0,0,0,0.7);
+    outline:none;
   }
 `;
 
