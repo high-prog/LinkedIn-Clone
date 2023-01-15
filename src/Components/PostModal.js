@@ -13,7 +13,7 @@ const PostModal = (props) => {
     setShareImage('');
     setVideoLink('');
     if(area === 'video'){
-      setShowLinkInput((e) => {
+      setShowLinkInput(() => {
         return !showLinkInput;
       });
     }
@@ -92,17 +92,21 @@ const PostModal = (props) => {
                 
 
                 
-                {showLinkInput && assetArea === 'video' && (
+                {assetArea === 'video' && showLinkInput &&
+                   (
                   <UploadVideo>
                     <input
                       type="text"
                       placeholder="Please put video link"
                       value={videoLink}
-                      onChange={(e) => setVideoLink(e.target.value)}
+                      onChange={(e) => {setVideoLink(e.target.value); console.log(videoLink)}}
                     />
-                  </UploadVideo>
-                )}
-                {videoLink && <ReactPlayer width={'100%'} url={videoLink} />}
+                   <ReactPlayer width={'100%'} url={videoLink} />
+                   </UploadVideo>
+                   )
+                }
+
+                
 
 
 
@@ -353,8 +357,9 @@ const UploadImage = styled.div`
 const UploadVideo = styled.div`
   input{
     padding:10px  16px;
-    border:rgba(0,0,0,0.7);
+    border:1px solid rgba(0,0,0,0.097);
     outline:none;
+    box-shadow: 17px 17px 8px -21px black;
   }
 `;
 
