@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
 import PostModal from './PostModal';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 const Main = (props) => {
   const [showModal, setShowModal] = useState('close');
@@ -27,14 +27,18 @@ const Main = (props) => {
   return (
     <Container>
       <ShareBox>
-        Share
         <div>
-        {props.user && props.user.photoURL ? (
-                  <img src={props.user.photoURL} alt="" />
-                ) : (
-                  <img src="/images/user.svg" alt="" />
-                )}
-          <button onClick={(e) => handleClick(e)}>Start a post</button>
+          {props.user && props.user.photoURL ? (
+            <img src={props.user.photoURL} alt="" />
+          ) : (
+            <img src="/images/user.svg" alt="" />
+          )}
+          <button
+            disabled={props.loading ? true : false}
+            onClick={(e) => handleClick(e)}
+          >
+            Start a post
+          </button>
         </div>
         <div>
           <button onClick={(e) => handleClick(e)}>
