@@ -3,12 +3,21 @@ import React, { useState } from 'react';
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState('');
+
+  const reset= (e) => {
+    setEditorText("");
+    props.handleClick(e);
+  }
+
+
   return (
+    <>
+    { props.showModal === "open" &&
     <Container>
       <Content>
         <Header>
           <h2>Create a post</h2>
-          <button>
+          <button onClick={(e) => reset(e)}>
             <img
               src="https://cdn.icon-icons.com/icons2/1674/PNG/512/close_111152.png"
               alt=""
@@ -61,6 +70,8 @@ const PostModal = (props) => {
         </SharedCreation>
       </Content>
     </Container>
+    }
+    </>
   );
 };
 
@@ -113,7 +124,7 @@ const Header = styled.div`
     justify-content:center;
     align-items:center;
     outline:none;
-    img{
+    svg,img{
       pointer-events:none;
     }
     &:hover{
@@ -221,7 +232,7 @@ const PostButton = styled.button`
 `;
 
 const Editor = styled.div`
-  padding: 10px 5px;
+  padding: 10px 18px;
   width:100%;
   textarea{
     margin:0 auto;
