@@ -1,15 +1,20 @@
 import { auth, provider, storage } from '../firebase';
 import { signInWithPopup, onAuthStateChanged, signOut  } from 'firebase/auth';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import db from '../firebase';
 import { collection, addDoc } from "firebase/firestore"; 
 
-import { SET_USER } from './actionType';
+import { SET_USER, SET_LOADING_STATUS } from './actionType';
 
 export const setUser = (payload) => ({
   type: SET_USER,
   user: payload,
 });
+
+export const setLoadingStatus = (status) => ({
+  type: SET_LOADING_STATUS,
+  status: status,
+})
 
 export function signInAPI() {
   return (dispatch) => {
@@ -47,6 +52,8 @@ export function signOutAPI(){
 
 export function postArticleAPI(payload){
   return (dispatch) => {
+    dispatch(setLoadingStatus(true))
+
     if(payload.image != ''){
       const upload = uploadBytesResumable(ref(storage, `images/${payload.image.name}`), payload.image);
       upload.on('state_changed', (snapshot) => {
@@ -70,14 +77,33 @@ export function postArticleAPI(payload){
             sharedImg: downloadURL,
             comments: 0,
             description: payload.description,
-          }
-          );
+          });
+          dispatch(setLoadingStatus(false));
           // console.log("Document written with ID: ", docRef.id);
         } catch (e) {
           console.error("Error adding document: ", e);
         }
         
       });
+    }else if(payload.video){
+      try {
+        const docRef =  addDoc(collection(db, "users"), {
+          actor:{
+            description: payload.user.email,
+            title: payload.user.displayName,
+            date: payload.timestamp,
+            image: payload.user.photoURL
+          },
+          video: payload.video,
+          sharedImg: '',
+          comments: 0,
+          description: payload.description,
+        });
+        dispatch(setLoadingStatus(false));
+        // console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     }
   }
 }
