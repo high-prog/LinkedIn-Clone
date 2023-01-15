@@ -4,73 +4,72 @@ import React, { useState } from 'react';
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState('');
 
-  const reset= (e) => {
-    setEditorText("");
+  const reset = (e) => {
+    setEditorText('');
     props.handleClick(e);
-  }
-
+  };
 
   return (
     <>
-    { props.showModal === "open" &&
-    <Container>
-      <Content>
-        <Header>
-          <h2>Create a post</h2>
-          <button onClick={(e) => reset(e)}>
-            <img
-              src="https://cdn.icon-icons.com/icons2/1674/PNG/512/close_111152.png"
-              alt=""
-              width="30px"
-            />
-          </button>
-        </Header>
-        <SharedContent>
-          <UserInfo>
-            <img src="/images/user.svg" alt="" />
-            <span>Name</span>
-          </UserInfo>
-          <Editor>
-          <textarea 
-          value={editorText} 
-          onChange={(e) => setEditorText(e.target.value)}
-          placeholder="Type Something to post"
-          autofocus={true}
-          ></textarea>
-          </Editor>
-        </SharedContent>
-        <SharedCreation>
-          <AttachAssets>
-            <AssetButton>
-              <img
-                src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png"
-                alt=""
-                width="20px"
-              />
-            </AssetButton>
-            <AssetButton>
-              <img
-                src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png"
-                alt=""
-                width="20px"
-              />
-            </AssetButton>
-          </AttachAssets>
-          <ShareComment>
-            <AssetButton>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/5338/5338282.png"
-                alt=""
-                width="20px"
-              />
-              Anyone
-            </AssetButton>
-          </ShareComment>
-          <PostButton>Post</PostButton>
-        </SharedCreation>
-      </Content>
-    </Container>
-    }
+      {props.showModal === 'open' && (
+        <Container>
+          <Content>
+            <Header>
+              <h2>Create a post</h2>
+              <button onClick={(e) => reset(e)}>
+                <img
+                  src="https://cdn.icon-icons.com/icons2/1674/PNG/512/close_111152.png"
+                  alt=""
+                  width="30px"
+                />
+              </button>
+            </Header>
+            <SharedContent>
+              <UserInfo>
+                <img src="/images/user.svg" alt="" />
+                <span>Name</span>
+              </UserInfo>
+              <Editor>
+                <textarea
+                  value={editorText}
+                  onChange={(e) => setEditorText(e.target.value)}
+                  placeholder="Type Something to post"
+                  autofocus={true}
+                ></textarea>
+              </Editor>
+            </SharedContent>
+            <SharedCreation>
+              <AttachAssets>
+                <AssetButton>
+                  <img
+                    src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png"
+                    alt=""
+                    width="20px"
+                  />
+                </AssetButton>
+                <AssetButton>
+                  <img
+                    src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png"
+                    alt=""
+                    width="20px"
+                  />
+                </AssetButton>
+              </AttachAssets>
+              <ShareComment>
+                <AssetButton>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/5338/5338282.png"
+                    alt=""
+                    width="20px"
+                  />
+                  Anyone
+                </AssetButton>
+              </ShareComment>
+              <PostButton>Post</PostButton>
+            </SharedCreation>
+          </Content>
+        </Container>
+      )}
     </>
   );
 };
@@ -84,6 +83,7 @@ bottom:0;
 z-index:200;
 color:black;
 background-color:rgba(0,0,0,0.8);
+animation:fadeIn 0.3s;
 `;
 
 const Content = styled.div`
