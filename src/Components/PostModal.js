@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
-import ReactPlayer from "react-player"; 
+import ReactPlayer from 'react-player';
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState('');
   const [shareImage, setShareImage] = useState('');
-  const [videoLink , setVideoLink] = useState('');
+  const [videoLink, setVideoLink] = useState('');
+  const [showLinkInput, setShowLinkInput] = useState(false);
+
+  const handleShow = (e) => {
+    e.preventDefault();
+    console.log(showLinkInput)
+    setShowLinkInput((e) => {
+      return !showLinkInput;
+    })
+  }
 
   const handleChange = (e) => {
     const image = e.target.files[0];
@@ -58,16 +67,25 @@ const PostModal = (props) => {
                 />
                 <UploadImage>
                   {shareImage && <img src={URL.createObjectURL(shareImage)} />}
-
                   <>
+                    {showLinkInput && <input
+                      type="text"
+                      placeholder="Please put video link"
+                      value={videoLink}
+                      onChange={(e) => setVideoLink(e.target.value)}
+                    />}
+                    {videoLink && (
+                      <ReactPlayer width={'100%'} url={videoLink} />
+                    )}
                   </>
+                  <></>
                 </UploadImage>
               </Editor>
             </SharedContent>
             <SharedCreation>
               <AttachAssets>
                 <AssetButton>
-                <input
+                  <input
                     type="file"
                     accept="image/gif, image/jpeg, image/jpg, image/png"
                     name="image"
@@ -76,15 +94,16 @@ const PostModal = (props) => {
                     onChange={handleChange}
                   />
                   <p>
-                    <label htmlFor="file"><img
-                    src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png"
-                    alt=""
-                    width="20px"
-                  /></label>
+                    <label htmlFor="file">
+                      <img
+                        src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png"
+                        alt=""
+                        width="20px"
+                      />
+                    </label>
                   </p>
-                  
                 </AssetButton>
-                <AssetButton>
+                <AssetButton onClick={handleShow}>
                   <img
                     src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png"
                     alt=""
@@ -296,6 +315,10 @@ const UploadImage = styled.div`
   text-align:center;
   img{
     width:100%;
+  }
+  input{
+    padding:10px 16px;
+    border: 1px solid rgba(0,0,0,0.08);
     
   }
 `;
