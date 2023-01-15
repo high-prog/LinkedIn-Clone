@@ -30,6 +30,12 @@ const PostModal = (props) => {
               <img src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png" alt="" width="30px" />
             </AssetButton>
           </AttachAssets>
+          <ShareComment>
+            <AssetButton>
+              <img src="https://cdn-icons-png.flaticon.com/512/5338/5338282.png" alt="" width="30px" />
+              Anyone
+            </AssetButton>
+          </ShareComment>
         </SharedCreation>
       </Content>
     </Container>
@@ -130,9 +136,7 @@ const UserInfo = styled.div`
 
 const SharedCreation = styled.div`
   display: flex;
-  justify-content: space-between;
   padding: 12px 24px 12px 16px;
-
 `;
 
 
@@ -144,7 +148,7 @@ const AssetButton = styled.button`
   background-color:white;
   outline:none;
   height: 40px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0,0,0,1);
   border-radius:10px;
   &:hover{
     background-color:rgba(0,0,0,0.15);
@@ -161,6 +165,17 @@ const AttachAssets = styled.div`
   ${AssetButton}{
     width:40px;
     cursor:pointer;
+  }
+`;
+
+const ShareComment = styled.div`
+  padding-left:8px;
+  margin-right:auto;
+  border-left: 1px solid rgba(0,0,0,0.35);
+  ${AssetButton}{
+    img{
+      margin-right:5px;
+    }
   }
 `;
 
