@@ -135,7 +135,7 @@ const Main = (props) => {
                       </button>
                       <button>
                         <img src="/images/comment-icon.svg" alt="" />
-                        <span>Comments</span>
+                        <span>Comment</span>
                       </button>
                       <button>
                         <img src="/images/share-icon.svg" alt="" />
@@ -228,6 +228,7 @@ div{
     }
   }
  &:nth-child(2){
+   
    padding:-bottom:4px;
    button{
      img{
@@ -334,7 +335,7 @@ line-height:1.3;
 display:flex;
 align-items:center;
 overflow:hidden;
-height: 40px;
+height:40px;
 border-bottom: 2px solid #e9e5df;
 list-style:none;
 li{
@@ -364,6 +365,7 @@ li{
     justify-content:center;
     background-color:white;
     cursor:pointer;
+    border-right:1px solid rgba(0,0,0,0.15);
     img{
       width:20px;
       margin-right:5px;
@@ -389,10 +391,11 @@ const SocialActions = styled.div`
   
   flex-grow:1;
   margin:0;
-  min-height:40px;
+  height:40px;
   padding:0;
   
   button{
+    cursor:pointer;
     border:none;
     display:flex;
     height:100%;
@@ -402,6 +405,7 @@ const SocialActions = styled.div`
     color:#0a66c2;
     background-color:white;
     justify-content:center;
+    border-right:1px solid rgba(0,0,0,0.18);
     img{
       width:20px;
     }
@@ -410,6 +414,15 @@ const SocialActions = styled.div`
         margin-left:6px;
       }
     }
+
+    &:hover{
+      background:rgba(0,0,0,0.04);
+    }
+
+    &:last-child{
+      border:none;
+    }
+
   }
 `;
 
