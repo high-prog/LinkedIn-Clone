@@ -50,19 +50,31 @@ const Main = (props) => {
               </button>
             </div>
             <div>
-              <button onClick={(e) => handleClick(e)}>
+              <button
+                disabled={props.loading ? true : false}
+                onClick={(e) => handleClick(e)}
+              >
                 <img src="/images/photo-icon.svg" alt="" />
                 <span>Photo</span>
               </button>
-              <button onClick={(e) => handleClick(e)}>
+              <button
+                disabled={props.loading ? true : false}
+                onClick={(e) => handleClick(e)}
+              >
                 <img src="/images/video-icon.svg" alt="" />
                 <span>video</span>
               </button>
-              <button onClick={(e) => handleClick(e)}>
+              <button
+                disabled={props.loading ? true : false}
+                onClick={(e) => handleClick(e)}
+              >
                 <img src="/images/event-icon.svg" alt="" />
                 <span>Event</span>
               </button>
-              <button onClick={(e) => handleClick(e)}>
+              <button
+                disabled={props.loading ? true : false}
+                onClick={(e) => handleClick(e)}
+              >
                 <img src="/images/article-icon.svg" alt="" />
                 <span>Write Article</span>
               </button>
@@ -70,90 +82,94 @@ const Main = (props) => {
           </ShareBox>
           <Content>
             {props.loading && <img src="./images/loading-icon.svg" />}
-            
-            {props.articles.length > 0 && props.articles.map((article,key) => {
-              
-              return (
-            
-            <Article key={key}>
-              <SharedActor> 
-                <a>
-                  <img src={article.actor.image} alt="" />
-                  <div>
-                    <span>{article.actor.title}</span>
-                    <span>{article.actor.description}</span>
-                    <span>{new Date(article.actor.date.seconds * 1000).toLocaleString()}</span>
-                  </div>
-                </a>
-                <button>
-                  <img src="/images/ellipsis.svg" width="20px" alt="" />
-                </button>
-              </SharedActor>
-              <Description>{article.description}</Description>
-              <SharedImage>
-                <a>
-                  <img
-                    src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg"
-                    alt=""
-                  />
-                </a>
-              </SharedImage>
-              <SocialCounts>
-                <li>
-                  <button>
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
-                      alt=""
-                      width="20px"
-                    />
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
-                      alt=""
-                      width="18px"
-                    />
-                    <span>75</span>
-                  </button>
-                </li>
-                <li>
-                  <a>2 comments</a>
-                </li>
-              </SocialCounts>
-              <SocialActions>
-                <button>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
-                    width="35px"
-                    alt=""
-                  />
-                  <span>Like</span>
-                </button>
-                <button>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
-                    alt=""
-                    width="20px"
-                  />
-                  <span>Comments</span>
-                </button>
-                <button>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
-                    alt=""
-                    width="35px"
-                  />
-                  <span>Share</span>
-                </button>
-                <button>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
-                    alt=""
-                    width="30px"
-                  />
-                  <span>Send</span>
-                </button>
-              </SocialActions>
-            </Article>
-)})}
+
+            {props.articles.length > 0 &&
+              props.articles.map((article, key) => {
+                return (
+                  <Article key={key}>
+                    <SharedActor>
+                      <a>
+                        <img src={article.actor.image} alt="" />
+                        <div>
+                          <span>{article.actor.title}</span>
+                          <span>{article.actor.description}</span>
+                          <span>
+                            {new Date(
+                              article.actor.date.seconds * 1000
+                            ).toLocaleString()}
+                          </span>
+                        </div>
+                      </a>
+                      <button>
+                        <img src="/images/ellipsis.svg" width="20px" alt="" />
+                      </button>
+                    </SharedActor>
+                    <Description>{article.description}</Description>
+                    <SharedImage>
+                      <a>
+                        <img
+                          src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg"
+                          alt=""
+                        />
+                      </a>
+                    </SharedImage>
+                    <SocialCounts>
+                      <li>
+                        <button>
+                          <img
+                            src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
+                            alt=""
+                            width="20px"
+                          />
+                          <img
+                            src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
+                            alt=""
+                            width="18px"
+                          />
+                          <span>75</span>
+                        </button>
+                      </li>
+                      <li>
+                        <a>2 comments</a>
+                      </li>
+                    </SocialCounts>
+                    <SocialActions>
+                      <button>
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
+                          width="35px"
+                          alt=""
+                        />
+                        <span>Like</span>
+                      </button>
+                      <button>
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
+                          alt=""
+                          width="20px"
+                        />
+                        <span>Comments</span>
+                      </button>
+                      <button>
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
+                          alt=""
+                          width="35px"
+                        />
+                        <span>Share</span>
+                      </button>
+                      <button>
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
+                          alt=""
+                          width="30px"
+                        />
+                        <span>Send</span>
+                      </button>
+                    </SocialActions>
+                  </Article>
+                );
+              })}
           </Content>
           <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
