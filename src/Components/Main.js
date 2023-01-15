@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player';
 import PostModal from './PostModal';
 import { connect } from 'react-redux';
 import { getArticlesAPI } from '../actions';
@@ -107,10 +108,12 @@ const Main = (props) => {
                     <Description>{article.description}</Description>
                     <SharedImage>
                       <a>
-                        <img
-                          src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg"
+                        { article.sharedImg === '' ?
+                        <ReactPlayer width={'100%'} url={article.video} />:
+                          <img
+                          src={article.sharedImg}
                           alt=""
-                        />
+                        />}
                       </a>
                     </SharedImage>
                     <SocialCounts>
