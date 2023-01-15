@@ -225,6 +225,9 @@ div{
      }
      span{
       color:#70b5f9;
+      &:hover{
+        color: rgba(0,0,0,0.88);
+      }
      }
    }
  }
@@ -234,7 +237,7 @@ div{
 const Article = styled(CommonCard)`
   padding:0;
   overflow:visible;
-  margin : 0 0 0 8px;
+  margin : 0;
 `;
 
 const SharedActor = styled.div`
