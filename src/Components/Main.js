@@ -141,7 +141,7 @@ const Main = (props) => {
                       <button>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
-                          width="35px"
+                          
                           alt=""
                         />
                         <span>Like</span>
@@ -150,7 +150,7 @@ const Main = (props) => {
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
                           alt=""
-                          width="20px"
+                          
                         />
                         <span>Comments</span>
                       </button>
@@ -158,7 +158,7 @@ const Main = (props) => {
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
                           alt=""
-                          width="35px"
+                          
                         />
                         <span>Share</span>
                       </button>
@@ -166,7 +166,7 @@ const Main = (props) => {
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
                           alt=""
-                          width="30px"
+                          
                         />
                         <span>Send</span>
                       </button>
@@ -369,28 +369,43 @@ li{
   font-size:12px;
   button{
     dispaly:flex;
+    border:none;
+    background-color:white;
 
   }
 }
 `;
 
 const SocialActions = styled.div`
-  align-items:center;
   display:flex;
-  justify-content:flex-start;
+  align-items:center;
+  justify-content:space-between;
   margin:0;
   min-height:40px;
-  padding:4px 8px;
+  padding:0;
+  border:1px solid red;
   button{
-    display:inline-flex;
+    display:flex;
+    height:100%;
     align-items:center;
-    padding:4px;
+    padding:5px 10px;
     color:#0a66c2;
-
+    border:1px solid black;
+    background-color:white;
+    justify-content:center;
+    align-items:center;
+    img{
+      width:25px;
+    }
 
     @media (min-width:768px){
       span{
         margin-left:8px;
+      }
+      button{
+        img{
+          width:20px;
+        }
       }
     }
   }
