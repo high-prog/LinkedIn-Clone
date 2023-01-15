@@ -131,9 +131,10 @@ const SharedContent = styled.div`
   flex-direction:column;
   flex-grow:1;
   overflow-y:auto;
+  overflow-x:hidden;
   vertical-align: baseline;
   background:transparent;
-  padding: 8px 12px;
+  // padding: 8px 12px;
 
 `;
 
@@ -220,13 +221,18 @@ const PostButton = styled.button`
 `;
 
 const Editor = styled.div`
-  padding: 12px 24px;
+  padding: 10px 5px;
+  width:100%;
   textarea{
-    width:100%;
+    margin:0 auto;
+    width:91%;
     resize:none;
-    min-height:100px;
-    padding: 8px 5px;
-    
+    min-height:150px;
+    padding: 10px 12px;
+    font-size:16px;
+    outline:none;
+    border:1px solid rgba(0,0,0,0.08);
+    border-radius:10px;
   }
 `;
 
