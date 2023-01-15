@@ -60,7 +60,7 @@ const Main = (props) => {
         </div>
       </ShareBox>
       <Content>
-        {props.loading && <img src={'images/loading-icon.svg'} />}
+        {props.loading && <img src='./images/loading-icon.svg' />}
 
         <Article>
           <SharedActor>
@@ -198,7 +198,7 @@ div{
     align-items:center;
     justify-content:center;
     padding:4px 8px;
-    width: 95%;
+    width: 90%;
     img{
       width:40px;
       border-radius:50%;
@@ -356,9 +356,19 @@ const SocialActions = styled.div`
   }
 `;
 
+
+const Content = styled.div`
+  text-align: center;
+  & > img{
+    width:50px;
+  }
+`;
+
+
 const mapStateToProps = (state) => {
   return {
     user: state.userState.user,
+    loading: state.articleState.loading,
   };
 };
 
