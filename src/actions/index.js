@@ -119,10 +119,11 @@ export function postArticleAPI(payload) {
 export function getArticlesAPI() {
   return (async (dispatch) => {
     let payload;
-    const q = query(collection(db, 'articles'), orderBy("actor.date"));
+    const q = query(collection(db, 'articles'), orderBy("actor.date", "desc"));
     const querySnapshot = await getDocs(q);
     payload = querySnapshot.map((doc) => {
       return doc.data();
     });
+    console.log(payload);
   });
 }
