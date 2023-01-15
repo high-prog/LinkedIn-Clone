@@ -359,6 +359,7 @@ const UploadVideo = styled.div`
     padding:10px  16px;
     border:1px solid rgba(0,0,0,0.097);
     outline:none;
+    border-radius:9px;
     box-shadow: 17px 17px 8px -21px black;
   }
 `;
