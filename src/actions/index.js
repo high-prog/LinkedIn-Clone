@@ -39,3 +39,10 @@ export function signOutAPI(){
     })
   }
 }
+
+
+export function postArticleAPI(payload){
+  return (dispatch) => {
+    
+  }
+}
