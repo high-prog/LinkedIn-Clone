@@ -73,9 +73,6 @@ const Main = (props) => {
             
             {props.articles.length > 0 && props.articles.map((article,key) => {
               
-              var date = new Date(article.actor.date);
-
-              
               return (
             
             <Article key={key}>
@@ -85,14 +82,14 @@ const Main = (props) => {
                   <div>
                     <span>{article.actor.title}</span>
                     <span>{article.actor.description}</span>
-                    <span>{date.getDate()}</span>
+                    <span>{new Date(article.actor.date.seconds * 1000).toLocaleString()}</span>
                   </div>
                 </a>
                 <button>
                   <img src="/images/ellipsis.svg" width="20px" alt="" />
                 </button>
               </SharedActor>
-              <Description>Text Description</Description>
+              <Description>{article.description}</Description>
               <SharedImage>
                 <a>
                   <img
