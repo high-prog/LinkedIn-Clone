@@ -43,6 +43,7 @@ const Rightside = (props) => {
 const Container = styled.div`
   grid-area: rightside;
   margin-bottom:100px;
+  
 `;
 
 const FollowCard = styled.div`
@@ -54,6 +55,8 @@ border-radius:5px;
 box-shadow: 0 0 0 1px rgba(0 0 0/ 15%), 0 0 0 rgb(0 0 0/ 20%);
 border:none;
 position:relative;
+
+z-index:10;
 padding:12px;
 `;
 
@@ -117,6 +120,7 @@ color:#0a66c2;
 display:flex;
 align-items:center;
 font-size:14px;
+cursor:pointer;
 `; 
 const BannerCard = styled(FollowCard)`
 img{

@@ -11,7 +11,7 @@ export function signInAPI() {
   return (dispatch) => {
     signInWithPopup(auth, provider)
       .then((payload) => {
-        console.log(payload.user);
+        // console.log(payload.user);
         dispatch(setUser(payload.user));
       })
       .catch((error) => alert(error.message));
@@ -23,7 +23,7 @@ export function getUserAuth() {
   return (dispatch) => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        console.log("user" + user);
+        // console.log("user" + user);
         dispatch(setUser(user))
       }
     });

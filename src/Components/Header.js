@@ -286,7 +286,7 @@ left:0;
 padding:1px 24px;
 top:0;
 width:100vw;
-z-index:100;
+z-index:10;
 
 
 `;
