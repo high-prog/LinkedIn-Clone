@@ -85,7 +85,7 @@ const Main = (props) => {
                   <div>
                     <span>{article.actor.title}</span>
                     <span>{article.actor.description}</span>
-                    <span>{date.getDate())}</span>
+                    <span>{date.getDate()}</span>
                   </div>
                 </a>
                 <button>
@@ -156,7 +156,7 @@ const Main = (props) => {
                 </button>
               </SocialActions>
             </Article>
-            )})}
+)})}
           </Content>
           <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
