@@ -71,7 +71,12 @@ const Main = (props) => {
           <Content>
             {props.loading && <img src="./images/loading-icon.svg" />}
             
-            {props.articles.length > 0 && props.articles.map((article,key) => (
+            {props.articles.length > 0 && props.articles.map((article,key) => {
+              
+              var date = new Date(article.actor.date);
+
+              
+              return (
             
             <Article key={key}>
               <SharedActor> 
@@ -80,7 +85,7 @@ const Main = (props) => {
                   <div>
                     <span>{article.actor.title}</span>
                     <span>{article.actor.description}</span>
-                    <span>{new Date(article.actor.date)}</span>
+                    <span>{date.getDate())}</span>
                   </div>
                 </a>
                 <button>
@@ -151,7 +156,7 @@ const Main = (props) => {
                 </button>
               </SocialActions>
             </Article>
-            ))}
+            )})}
           </Content>
           <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
