@@ -1,5 +1,8 @@
-import { auth, provider } from '../firebase';
+import { auth, provider, storage } from '../firebase';
 import { signInWithPopup, onAuthStateChanged, signOut  } from 'firebase/auth';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import db from '../firebase';
+
 import { SET_USER } from './actionType';
 
 export const setUser = (payload) => ({
@@ -43,6 +46,18 @@ export function signOutAPI(){
 
 export function postArticleAPI(payload){
   return (dispatch) => {
-    
+    if(payload.image != ''){
+      const upload = uploadBytesResumable(ref(storage, `images/${payload.image.name}`), payload.image);
+      upload.on('state_changed', (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if(snapshot.state === 'running'){
+          console.log("progress " + progress + "%");
+        }
+      }, (error) => {
+        console.log(error.code);
+      }, async () => {
+        const downloadURL = await getDownloadURL(upload.snapshot.ref);
+      });
+    }
   }
 }
