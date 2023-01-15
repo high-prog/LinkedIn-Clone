@@ -70,15 +70,17 @@ const Main = (props) => {
           </ShareBox>
           <Content>
             {props.loading && <img src="./images/loading-icon.svg" />}
-
-            <Article>
-              <SharedActor>
+            
+            {props.articles.length > 0 && props.articles.map((article,key) => (
+            
+            <Article key={key}>
+              <SharedActor> 
                 <a>
-                  <img src="/images/user.svg" alt="" />
+                  <img src={article.actor.image} alt="" />
                   <div>
-                    <span>Title</span>
-                    <span>Info</span>
-                    <span>Date</span>
+                    <span>{article.actor.title}</span>
+                    <span>{article.actor.description}</span>
+                    <span>{new Date(article.actor.date)}</span>
                   </div>
                 </a>
                 <button>
@@ -149,6 +151,7 @@ const Main = (props) => {
                 </button>
               </SocialActions>
             </Article>
+            ))}
           </Content>
           <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
