@@ -126,9 +126,9 @@ const Main = (props) => {
                             
                           />
                           <img
-                            src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
+                            src="/images/clap-icon.svg"
                             alt=""
-                            width="18px"
+                            
                           />
                           <span>75</span>
                         </button>
@@ -358,21 +358,47 @@ img{
 const SocialCounts = styled.ul`
 line-height:1.3;
 display:flex;
-align-items:space-around;
-overflow:auto;
-padding: 8px 5px;
-border:1px solid red;
+align-items:center;
+overflow:hidden;
+height: 40px;
 border-bottom: 1px solid #e9e5df;
 list-style:none;
 li{
-  margin-right:5px;
+  border:none;
+  height: 100%;
   font-size:12px;
+  display:flex;
+  align-items:center;
+  justfy-content:center;
+  flex-grow:1;
+  
+  a{
+    font-size:12px;
+    font-weight:600;
+    width:100%;
+    text-align:center;
+  }
   button{
-    dispaly:flex;
+    font-size:13px;
+    font-weight:600;
     border:none;
+    dispaly:flex;
+    width:100%;
+    height:100%;
+    align-items:center;
+    justify-content:center;
     background-color:white;
+    img{
+      width:20px;
+      margin-right:5px;
+    }
 
   }
+}
+&:first-child{
+  
+    border-right:1px solid rgba(0,0,0,0.38);
+
 }
 `;
 
