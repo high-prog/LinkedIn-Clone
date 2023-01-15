@@ -32,57 +32,56 @@ const Main = (props) => {
 
   return (
     <>
-      
-        <Container>
-          <ShareBox>
-            <div>
-              {props.user && props.user.photoURL ? (
-                <img src={props.user.photoURL} alt="" />
-              ) : (
-                <img src="/images/user.svg" alt="" />
-              )}
-              <button
-                disabled={props.loading ? true : false}
-                onClick={(e) => handleClick(e)}
-              >
-                Start a post
-              </button>
-            </div>
-            <div>
-              <button
-                disabled={props.loading ? true : false}
-                onClick={(e) => handleClick(e)}
-              >
-                <img src="/images/photo-icon.svg" alt="" />
-                <span>Photo</span>
-              </button>
-              <button
-                disabled={props.loading ? true : false}
-                onClick={(e) => handleClick(e)}
-              >
-                <img src="/images/video-icon.svg" alt="" />
-                <span>video</span>
-              </button>
-              <button
-                disabled={props.loading ? true : false}
-                onClick={(e) => handleClick(e)}
-              >
-                <img src="/images/event-icon.svg" alt="" />
-                <span>Event</span>
-              </button>
-              <button
-                disabled={props.loading ? true : false}
-                onClick={(e) => handleClick(e)}
-              >
-                <img src="/images/article-icon.svg" alt="" />
-                <span>Write Article</span>
-              </button>
-            </div>
-          </ShareBox>
-          
-          {props.articles.length === 0 ? (
-        <p>Nothing to show. Post Something!</p>
-      ) : (
+      <Container>
+        <ShareBox>
+          <div>
+            {props.user && props.user.photoURL ? (
+              <img src={props.user.photoURL} alt="" />
+            ) : (
+              <img src="/images/user.svg" alt="" />
+            )}
+            <button
+              disabled={props.loading ? true : false}
+              onClick={(e) => handleClick(e)}
+            >
+              Start a post
+            </button>
+          </div>
+          <div>
+            <button
+              disabled={props.loading ? true : false}
+              onClick={(e) => handleClick(e)}
+            >
+              <img src="/images/photo-icon.svg" alt="" />
+              <span>Photo</span>
+            </button>
+            <button
+              disabled={props.loading ? true : false}
+              onClick={(e) => handleClick(e)}
+            >
+              <img src="/images/video-icon.svg" alt="" />
+              <span>video</span>
+            </button>
+            <button
+              disabled={props.loading ? true : false}
+              onClick={(e) => handleClick(e)}
+            >
+              <img src="/images/event-icon.svg" alt="" />
+              <span>Event</span>
+            </button>
+            <button
+              disabled={props.loading ? true : false}
+              onClick={(e) => handleClick(e)}
+            >
+              <img src="/images/article-icon.svg" alt="" />
+              <span>Write Article</span>
+            </button>
+          </div>
+        </ShareBox>
+
+        {props.articles.length === 0 ? (
+          <p>Nothing to show. Post Something!</p>
+        ) : (
           <Content>
             {props.loading && <img src="./images/loading-icon.svg" />}
 
@@ -120,16 +119,8 @@ const Main = (props) => {
                     <SocialCounts>
                       <li>
                         <button>
-                          <img
-                            src="/images/like-icon.svg"
-                            alt=""
-                            
-                          />
-                          <img
-                            src="/images/clap-icon.svg"
-                            alt=""
-                            
-                          />
+                          <img src="/images/like-icon.svg" alt="" />
+                          <img src="/images/clap-icon.svg" alt="" />
                           <span>75</span>
                         </button>
                       </li>
@@ -139,35 +130,19 @@ const Main = (props) => {
                     </SocialCounts>
                     <SocialActions>
                       <button>
-                        <img
-                          src="/images/like-icon.svg"
-                          
-                          alt=""
-                        />
+                        <img src="/images/like-icon.svg" alt="" />
                         <span>Like</span>
                       </button>
                       <button>
-                        <img
-                          src="/images/comment-icon.svg"
-                          alt=""
-                          
-                        />
+                        <img src="/images/comment-icon.svg" alt="" />
                         <span>Comments</span>
                       </button>
                       <button>
-                        <img
-                          src="/images/share-icon.svg"
-                          alt=""
-                          
-                        />
+                        <img src="/images/share-icon.svg" alt="" />
                         <span>Share</span>
                       </button>
                       <button>
-                        <img
-                          src="/images/send-icon.svg"
-                          alt=""
-                          
-                        />
+                        <img src="/images/send-icon.svg" alt="" />
                         <span>Send</span>
                       </button>
                     </SocialActions>
@@ -175,10 +150,9 @@ const Main = (props) => {
                 );
               })}
           </Content>
-          )}
-          <PostModal showModal={showModal} handleClick={handleClick} />
-        </Container>
-      
+        )}
+        <PostModal showModal={showModal} handleClick={handleClick} />
+      </Container>
     </>
   );
 };
@@ -274,7 +248,7 @@ div{
 const Article = styled(CommonCard)`
   padding:0;
   overflow:visible;
-  margin : 0;
+  margin : 12px 0px;
 `;
 
 const SharedActor = styled.div`
@@ -412,34 +386,28 @@ li{
 const SocialActions = styled.div`
   display:flex;
   align-items:center;
-  justify-content:center;
+  
+  flex-grow:1;
   margin:0;
   min-height:40px;
   padding:0;
   
   button{
+    border:none;
     display:flex;
     height:100%;
+    width:100%;
     align-items:center;
     padding:5px 10px;
     color:#0a66c2;
-    border-right:1px solid rgba(0,0,0,0.08);
     background-color:white;
     justify-content:center;
-    align-items:center;
     img{
       width:20px;
     }
-
     @media (min-width:768px){
       span{
-        margin-left:8px;
-      }
-      button{
-        padding: 5px 90px;
-        img{
-          width:30px;
-        }
+        margin-left:6px;
       }
     }
   }
