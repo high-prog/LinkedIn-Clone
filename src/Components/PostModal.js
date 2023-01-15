@@ -55,18 +55,30 @@ const PostModal = (props) => {
                   autofocus={true}
                 />
                 <UploadImage>
-                  input
+                 
+                  {shareImage && <img src={URL.createObjectURL(shareImage)} />}
                 </UploadImage>
               </Editor>
             </SharedContent>
             <SharedCreation>
               <AttachAssets>
                 <AssetButton>
-                  <img
+                <input
+                    type="file"
+                    accept="image/gif, image/jpeg, image/jpg, image/png"
+                    name="image"
+                    id="file"
+                    style={{ display: 'none' }}
+                    onChange={handleChange}
+                  />
+                  <p>
+                    <label htmlFor="file"><img
                     src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png"
                     alt=""
                     width="20px"
-                  />
+                  /></label>
+                  </p>
+                  
                 </AssetButton>
                 <AssetButton>
                   <img
@@ -203,7 +215,7 @@ const AssetButton = styled.button`
   border: 1px solid transparent;
   background-color:white;
   outline:none;
-  height: 30px;
+  height: 35px;
   color: rgba(0,0,0,1);
   border-radius:10px;
   &:hover{
@@ -218,9 +230,14 @@ const AttachAssets = styled.div`
   display:flex;
   align-items:center;
   padding-right: 8px;
+  cursor:pointer;
   ${AssetButton}{
+    label{
+      img{
+        cursor:pointer;
+      }
+    }
     width:30px;
-    cursor:pointer;
   }
 `;
 
@@ -268,6 +285,14 @@ const Editor = styled.div`
     outline:none;
     border:1px solid rgba(0,0,0,0.08);
     border-radius:10px;
+  }
+`;
+
+const UploadImage = styled.div`
+  text-align:center;
+  img{
+    width:100%;
+    
   }
 `;
 
