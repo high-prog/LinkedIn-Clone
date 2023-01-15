@@ -256,7 +256,7 @@ const SharedActor = styled.div`
 padding-right:40px;
 flex-wrap:nowrap;
 padding: 12px 26px 0;
-margin-bottom:8px;
+margin-bottom:12px;
 align-items:center;
 display:flex;
 a{
@@ -265,30 +265,30 @@ a{
   overflow:hidden;
   display:flex;
   text-decoration:none;
-
+  
   img{
     width:48px;
     height:48px;
-
+    border-radius:5px;
   }
-  & > div{
+  div{
+    
     display:flex;
     flex-direction:column;
     flex-grow:1;
-    flex-basis:0;
+    justify-content:space-around;
     margin-left:8px;
     overflow:hidden;
     span{
       text-align:left;
+      font-size:12px;
+      font-weight:400;
+      color:rgba(0,0,0,0.6);
+
       &:first-child{
-        font-size:14px;
+        font-size:16px;
         font-weight:700;
         color:rgba(0,0,0,1);
-      }
-
-      &:nth-child(n + 1){
-        font-size:12px;
-        color:rgba(0,0,0,0.6);
       }
     }
   }
@@ -313,7 +313,8 @@ const Description = styled.div`
 padding: 0 16px;
 overflow:hidden;
 color:rgba(0,0,0,0.9);
-font-size:14px;
+font-size:16px;
+font-weight:500;
 text-align:left;
 `;
 
