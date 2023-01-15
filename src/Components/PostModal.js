@@ -4,18 +4,27 @@ import React from 'react';
 const PostModal = (props) => {
   return (
     <Container>
-        <Content>
-          <Header>
-            <h2>Create a post</h2>
-            <button>
-            <img src="https://cdn.icon-icons.com/icons2/1674/PNG/512/close_111152.png" alt="" width="30px" />
-            </button>
-          </Header>
-        </Content>
-      
-   </Container>
-  )
-}
+      <Content>
+        <Header>
+          <h2>Create a post</h2>
+          <button>
+            <img
+              src="https://cdn.icon-icons.com/icons2/1674/PNG/512/close_111152.png"
+              alt=""
+              width="30px"
+            />
+          </button>
+        </Header>
+        <SharedContent>
+          <UserInfo>
+            <img src="/images/user.svg" alt="" />
+            <span>Name</span>
+          </UserInfo>
+        </SharedContent>
+      </Content>
+    </Container>
+  );
+};
 
 const Container = styled.div`
 position:absolute;
@@ -64,15 +73,50 @@ const Header = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
+    outline:none;
     img{
       pointer-events:none;
     }
     &:hover{
-      background-color:rgba(0,0,0,0.8);
+      background-color:rgba(0,0,0,0.15);
     }
+    &:active{
+      transform:translateY(4px);
+    }
+
+
   }
 `;
+const SharedContent = styled.div`
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+  overflow-y:auto;
+  vertical-align: baseline;
+  background:transparent;
+  padding: 8px 12px;
+
+`;
+
+const UserInfo = styled.div`
+  display:flex;
+  align-items:center;
+  padding:12px 24px;
+  img,svg{
+    width:40px;
+    height:40px;
+    background-clip: content-box;
+    border: 2px solid transparent;
+    border-radius: 50%;
+  }
+  span{
+    font-weight:600;
+    font-size:16px;
+    line-height:1.5;
+    margin:5px;
+  }
 
 
+`;
 
 export default PostModal;
