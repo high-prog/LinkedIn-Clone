@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
 import PostModal from './PostModal';
 import { connect } from 'react-redux';
-import { getArticlesAPI } from '../actions'
+import { getArticlesAPI } from '../actions';
 
 const Main = (props) => {
   const [showModal, setShowModal] = useState('close');
 
   useEffect(() => {
     props.getArticle();
-  }, [])
+  }, []);
 
   function handleClick(e) {
     e.preventDefault();
@@ -30,124 +30,130 @@ const Main = (props) => {
   }
 
   return (
-    <Container>
-      <ShareBox>
-        <div>
-          {props.user && props.user.photoURL ? (
-            <img src={props.user.photoURL} alt="" />
-          ) : (
-            <img src="/images/user.svg" alt="" />
-          )}
-          <button
-            disabled={props.loading ? true : false}
-            onClick={(e) => handleClick(e)}
-          >
-            Start a post
-          </button>
-        </div>
-        <div>
-          <button onClick={(e) => handleClick(e)}>
-            <img src="/images/photo-icon.svg" alt="" />
-            <span>Photo</span>
-          </button>
-          <button onClick={(e) => handleClick(e)}>
-            <img src="/images/video-icon.svg" alt="" />
-            <span>video</span>
-          </button>
-          <button onClick={(e) => handleClick(e)}>
-            <img src="/images/event-icon.svg" alt="" />
-            <span>Event</span>
-          </button>
-          <button onClick={(e) => handleClick(e)}>
-            <img src="/images/article-icon.svg" alt="" />
-            <span>Write Article</span>
-          </button>
-        </div>
-      </ShareBox>
-      <Content>
-        {props.loading && <img src='./images/loading-icon.svg' />}
-
-        <Article>
-          <SharedActor>
-            <a>
-              <img src="/images/user.svg" alt="" />
-              <div>
-                <span>Title</span>
-                <span>Info</span>
-                <span>Date</span>
-              </div>
-            </a>
-            <button>
-              <img src="/images/ellipsis.svg" width="20px" alt="" />
-            </button>
-          </SharedActor>
-          <Description>Text Description</Description>
-          <SharedImage>
-            <a>
-              <img
-                src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg"
-                alt=""
-              />
-            </a>
-          </SharedImage>
-          <SocialCounts>
-            <li>
-              <button>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
-                  alt=""
-                  width="20px"
-                />
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
-                  alt=""
-                  width="18px"
-                />
-                <span>75</span>
+    <>
+      {props.articles.length === 0 ? (
+        <p>Nothing to show. Post Something!</p>
+      ) : (
+        <Container>
+          <ShareBox>
+            <div>
+              {props.user && props.user.photoURL ? (
+                <img src={props.user.photoURL} alt="" />
+              ) : (
+                <img src="/images/user.svg" alt="" />
+              )}
+              <button
+                disabled={props.loading ? true : false}
+                onClick={(e) => handleClick(e)}
+              >
+                Start a post
               </button>
-            </li>
-            <li>
-              <a>2 comments</a>
-            </li>
-          </SocialCounts>
-          <SocialActions>
-            <button>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
-                width="35px"
-                alt=""
-              />
-              <span>Like</span>
-            </button>
-            <button>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
-                alt=""
-                width="20px"
-              />
-              <span>Comments</span>
-            </button>
-            <button>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
-                alt=""
-                width="35px"
-              />
-              <span>Share</span>
-            </button>
-            <button>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
-                alt=""
-                width="30px"
-              />
-              <span>Send</span>
-            </button>
-          </SocialActions>
-        </Article>
-      </Content>
-      <PostModal showModal={showModal} handleClick={handleClick} />
-    </Container>
+            </div>
+            <div>
+              <button onClick={(e) => handleClick(e)}>
+                <img src="/images/photo-icon.svg" alt="" />
+                <span>Photo</span>
+              </button>
+              <button onClick={(e) => handleClick(e)}>
+                <img src="/images/video-icon.svg" alt="" />
+                <span>video</span>
+              </button>
+              <button onClick={(e) => handleClick(e)}>
+                <img src="/images/event-icon.svg" alt="" />
+                <span>Event</span>
+              </button>
+              <button onClick={(e) => handleClick(e)}>
+                <img src="/images/article-icon.svg" alt="" />
+                <span>Write Article</span>
+              </button>
+            </div>
+          </ShareBox>
+          <Content>
+            {props.loading && <img src="./images/loading-icon.svg" />}
+
+            <Article>
+              <SharedActor>
+                <a>
+                  <img src="/images/user.svg" alt="" />
+                  <div>
+                    <span>Title</span>
+                    <span>Info</span>
+                    <span>Date</span>
+                  </div>
+                </a>
+                <button>
+                  <img src="/images/ellipsis.svg" width="20px" alt="" />
+                </button>
+              </SharedActor>
+              <Description>Text Description</Description>
+              <SharedImage>
+                <a>
+                  <img
+                    src="https://raw.githubusercontent.com/high-prog/LinkedIn-Clone/main/public/images/shared-image.jpg"
+                    alt=""
+                  />
+                </a>
+              </SharedImage>
+              <SocialCounts>
+                <li>
+                  <button>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/4102/4102964.png"
+                      alt=""
+                      width="20px"
+                    />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/5976/5976435.png"
+                      alt=""
+                      width="18px"
+                    />
+                    <span>75</span>
+                  </button>
+                </li>
+                <li>
+                  <a>2 comments</a>
+                </li>
+              </SocialCounts>
+              <SocialActions>
+                <button>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnnVNTBrB7KwfJcgs06HWpY_nw-XNdon_2g&usqp=CAU"
+                    width="35px"
+                    alt=""
+                  />
+                  <span>Like</span>
+                </button>
+                <button>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL3EiUayWY98MAIcutvVCH6Y8hXSaW50iZeQ&usqp=CAU"
+                    alt=""
+                    width="20px"
+                  />
+                  <span>Comments</span>
+                </button>
+                <button>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyOW7OOigYasSiDcBEHqWDljb7HBkL8vTsOw&usqp=CAU"
+                    alt=""
+                    width="35px"
+                  />
+                  <span>Share</span>
+                </button>
+                <button>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkN_IUHplq3hgC6Yj1DVQAaT24dVCny1PdRQ&usqp=CAU"
+                    alt=""
+                    width="30px"
+                  />
+                  <span>Send</span>
+                </button>
+              </SocialActions>
+            </Article>
+          </Content>
+          <PostModal showModal={showModal} handleClick={handleClick} />
+        </Container>
+      )}
+    </>
   );
 };
 
@@ -364,14 +370,12 @@ const SocialActions = styled.div`
   }
 `;
 
-
 const Content = styled.div`
   text-align: center;
   & > img{
     width:50px;
   }
 `;
-
 
 const mapStateToProps = (state) => {
   return {
@@ -382,7 +386,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    getArticle: () =>  dispatch(getArticlesAPI()),
+  getArticle: () => dispatch(getArticlesAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
