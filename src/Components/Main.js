@@ -2,23 +2,23 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import PostModal from './PostModal';
 
-
 const Main = (props) => {
-
-  const [showModal, setShowModal] = useState("close");
+  const [showModal, setShowModal] = useState('close');
 
   function handleClick(e) {
     e.preventDefault();
-    if(e.target !== e.currentTarget) {return;}
+    // if (e.target !== e.currentTarget) {
+    //   return;
+    // }
     switch (showModal) {
-      case "open": 
-        setShowModal("close");
+      case 'open':
+        setShowModal('close');
         break;
-      case "close":
-        setShowModal("open");
+      case 'close':
+        setShowModal('open');
         break;
       default:
-        setShowModal("close");
+        setShowModal('close');
         break;
     }
   }
@@ -32,19 +32,19 @@ const Main = (props) => {
           <button onClick={(e) => handleClick(e)}>Start a post</button>
         </div>
         <div>
-          <button>
+          <button onClick={(e) => handleClick(e)}>
             <img src="/images/photo-icon.svg" alt="" />
             <span>Photo</span>
           </button>
-          <button>
+          <button onClick={(e) => handleClick(e)}>
             <img src="/images/video-icon.svg" alt="" />
             <span>video</span>
           </button>
-          <button>
+          <button onClick={(e) => handleClick(e)}>
             <img src="/images/event-icon.svg" alt="" />
             <span>Event</span>
           </button>
-          <button>
+          <button onClick={(e) => handleClick(e)}>
             <img src="/images/article-icon.svg" alt="" />
             <span>Write Article</span>
           </button>
@@ -131,7 +131,7 @@ const Main = (props) => {
           </SocialActions>
         </Article>
       </div>
-      <PostModal showModal={showModal} handleClick={handleClick}/>
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };
