@@ -132,7 +132,7 @@ const Main = (props) => {
                         </button>
                       </li>
                       <li>
-                        <a>2 comments</a>
+                        <a>{article.comments} comments</a>
                       </li>
                     </SocialCounts>
                     <SocialActions>
