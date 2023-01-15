@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useState } from 'react';
 
 const PostModal = (props) => {
+  const [editorText, setEditorText] = useState('');
   return (
     <Container>
       <Content>
@@ -20,25 +21,43 @@ const PostModal = (props) => {
             <img src="/images/user.svg" alt="" />
             <span>Name</span>
           </UserInfo>
+          <Editor>
+          <textarea 
+          value={editorText} 
+          onChange={(e) => setEditorText(e.target.value)}
+          placeholder="Type Something to post"
+          autofocus={true}
+          ></textarea>
+          </Editor>
         </SharedContent>
         <SharedCreation>
           <AttachAssets>
             <AssetButton>
-              <img src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png" alt="" width="30px"/>
+              <img
+                src="https://toppng.com/uploads/preview/file-upload-image-icon-115632290507ftgixivqp.png"
+                alt=""
+                width="20px"
+              />
             </AssetButton>
             <AssetButton>
-              <img src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png" alt="" width="30px" />
+              <img
+                src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png"
+                alt=""
+                width="20px"
+              />
             </AssetButton>
           </AttachAssets>
           <ShareComment>
             <AssetButton>
-              <img src="https://cdn-icons-png.flaticon.com/512/5338/5338282.png" alt="" width="30px" />
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/5338/5338282.png"
+                alt=""
+                width="20px"
+              />
               Anyone
             </AssetButton>
           </ShareComment>
-          <PostButton>
-            Post
-          </PostButton>
+          <PostButton>Post</PostButton>
         </SharedCreation>
       </Content>
     </Container>
@@ -142,7 +161,6 @@ const SharedCreation = styled.div`
   padding: 12px 24px 12px 16px;
 `;
 
-
 const AssetButton = styled.button`
   display: flex;
   justify-content:center;
@@ -150,7 +168,7 @@ const AssetButton = styled.button`
   border: 1px solid transparent;
   background-color:white;
   outline:none;
-  height: 40px;
+  height: 30px;
   color: rgba(0,0,0,1);
   border-radius:10px;
   &:hover{
@@ -166,7 +184,7 @@ const AttachAssets = styled.div`
   align-items:center;
   padding-right: 8px;
   ${AssetButton}{
-    width:40px;
+    width:30px;
     cursor:pointer;
   }
 `;
@@ -198,6 +216,17 @@ const PostButton = styled.button`
   }
   &:active{
     transform:translateY(1.5px);
+  }
+`;
+
+const Editor = styled.div`
+  padding: 12px 24px;
+  textarea{
+    width:100%;
+    resize:none;
+    min-height:100px;
+    padding: 8px 5px;
+    
   }
 `;
 
