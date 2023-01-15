@@ -4,7 +4,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import db from '../firebase';
 import { collection, addDoc, orderBy, query, getDocs } from 'firebase/firestore';
 
-import { SET_USER, SET_LOADING_STATUS } from './actionType';
+import { SET_USER, SET_LOADING_STATUS, GET_ARTICLES } from './actionType';
 
 export const setUser = (payload) => ({
   type: SET_USER,
@@ -15,6 +15,11 @@ export const setLoadingStatus = (status) => ({
   type: SET_LOADING_STATUS,
   status: status,
 });
+
+export const getArticles = (payload) => ({
+  type: GET_ARTICLES,
+  payload: payload,
+})
 
 export function signInAPI() {
   return (dispatch) => {
@@ -113,7 +118,7 @@ export function postArticleAPI(payload) {
         console.error('Error adding document: ', e);
       }
     }
-  };
+  }; 
 }
 
 export function getArticlesAPI() {
@@ -123,8 +128,11 @@ export function getArticlesAPI() {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      payload.push(doc.data);
+      payload.push(doc.data());
     });
     console.log(payload);
+    dispatch(getArticles(payload));
   });
 }
+
+ 

@@ -377,6 +377,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.userState.user,
     loading: state.articleState.loading,
+    articles: state.articleState.articles,
   };
 };
 
