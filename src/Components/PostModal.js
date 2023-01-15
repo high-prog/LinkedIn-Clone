@@ -6,27 +6,15 @@ const PostModal = (props) => {
   const [editorText, setEditorText] = useState('');
   const [shareImage, setShareImage] = useState('');
   const [videoLink, setVideoLink] = useState('');
-  const [showLinkInput, setShowLinkInput] = useState(false);
   const [assetArea, setAssetArea] = useState('');
 
   const switchAssetArea = (area) => {
-    setShareImage('');
-    setVideoLink('');
-    if(area === 'video'){
-      setShowLinkInput(() => {
-        return !showLinkInput;
-      });
+    if (area === 'video') {
+      setShareImage('');
+    } else if (area === 'image') {
+      setVideoLink('');
     }
     setAssetArea(area);
-  };
-
-  const handleShow = (e) => {
-    e.preventDefault();
-    switchAssetArea('video');
-    // console.log(showLinkInput);
-    // setShowLinkInput((e) => {
-    //   return !showLinkInput;
-    // });
   };
 
   const handleChange = (e) => {
@@ -82,33 +70,28 @@ const PostModal = (props) => {
                   autofocus={true}
                 />
 
-                
-                  { assetArea == 'image' && <UploadImage>
+                {assetArea == 'image' && (
+                  <UploadImage>
                     {shareImage && (
                       <img src={URL.createObjectURL(shareImage)} />
                     )}
                   </UploadImage>
-                  }
-                
+                )}
 
-                
-                {assetArea === 'video' && showLinkInput &&
-                   (
+                {assetArea === 'video' && (
                   <UploadVideo>
                     <input
                       type="text"
                       placeholder="Please put video link"
                       value={videoLink}
-                      onChange={(e) => {setVideoLink(e.target.value); console.log(videoLink)}}
+                      onChange={(e) => {
+                        setVideoLink(e.target.value);
+                        console.log(videoLink);
+                      }}
                     />
-                   <ReactPlayer width={'100%'} url={videoLink} />
-                   </UploadVideo>
-                   )
-                }
-
-                
-
-
+                  </UploadVideo>
+                )}
+                {videoLink && <ReactPlayer width={'100%'} url={videoLink} />}
 
                 <></>
               </Editor>
@@ -134,7 +117,7 @@ const PostModal = (props) => {
                     </label>
                   </p>
                 </AssetButton>
-                <AssetButton onClick={handleShow}>
+                <AssetButton onClick={() => switchAssetArea('video')}>
                   <img
                     src="https://w7.pngwing.com/pngs/757/1013/png-transparent-upload-video-film-movie-user-interface-icon.png"
                     alt=""
@@ -361,6 +344,8 @@ const UploadVideo = styled.div`
     outline:none;
     border-radius:9px;
     box-shadow: 17px 17px 8px -21px black;
+    width:90%;
+
   }
 `;
 
